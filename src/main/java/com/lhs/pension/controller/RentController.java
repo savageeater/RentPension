@@ -90,12 +90,12 @@ public class RentController {
 		return "redirect:ReserveView";
 	}
 	
-	@RequestMapping("/CarReserveMain")
+	@RequestMapping("/PensionReserveMain")
 	public String carReserveMain(Model model, HttpServletRequest request, HttpServletResponse response) throws SQLException {
 		RentPensionIDao dao = sqlSession.getMapper(RentPensionIDao.class);
 		model.addAttribute("allcount", dao.allcount());
 		model.addAttribute("list", dao.selectAll());
-		return "Main.jsp?center=CarReserveMain";
+		return "Main?center=Pension/PensionReserveMain.jsp";
 	}
 	
 	@RequestMapping("/CarReserveInfo")

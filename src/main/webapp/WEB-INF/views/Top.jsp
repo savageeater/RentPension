@@ -5,8 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/css/bootstrap.css">
+
 
 <title>Insert title here</title>
 </head>
@@ -22,8 +21,7 @@
 	<table width="85%">
 		<tr height="70">
 			<td colspan="4"><a href="Main" style="text-decoration: none">
-					<img alt="로고출력자리" src="resources/img/LOGO1.jpg" height="80"
-					width="100">
+					<img alt="로고출력자리" src="resources/img/Logo.png" >
 			</a></td>
 			<td align="center" width="200">
 				<%
@@ -46,47 +44,32 @@
 	<table width="85%">
 		<tr height="50">
 			<td align="center" width="20%" bgcolor="#355C7D"><a
-				href="CarReserveMain" style="text-decoration: none"> <font
-					color="white" size="4" onMouseover="this.style.color='black';"
-					onMouseout="this.style.color='white';">렌트카 예약</font></a></td>
+				href="PensionReserveMain" style="text-decoration: none"> <font
+					color="white" size="4">지역별 검색</font></a></td>
+					
 			<td align="center" width="20%" bgcolor="#355C7D"><a
 				href="ReserveView" style="text-decoration: none"><font
-					color="white" size="4" onMouseover="this.style.color='black';"
-					onMouseout="this.style.color='white';">예약 확인</font></a></td>
+					color="white" size="4">빈 방 검색</font></a></td>
+					
 			<td align="center" width="20%" bgcolor="#355C7D"><a
 				href="BoardList" style="text-decoration: none"><font
-					color="white" size="4" onMouseover="this.style.color='black';"
-					onMouseout="this.style.color='white';">자유 게시판</font></a></td>
+					color="white" size="4">옵션 검색</font></a></td>
+					
 			<%
 				if (id.equals("admin")) {
 			%>
-			<td align="center" width="20%" bgcolor="#355C7D"><a
+<!-- 			<td align="center" width="20%" bgcolor="#355C7D"><a
 				href="CarProcess" style="text-decoration: none"><font
 					color="white" size="4" onMouseover="this.style.color='black';"
-					onMouseout="this.style.color='white';" style="font:bord;">차량 등록</font></a></td>
+					onMouseout="this.style.color='white';" style="font:bord;">차량 등록</font></a></td> -->
 			<%
 				}
 			%>
-			<c:choose>
-				<c:when test="${id eq 'admin'}">
-					<td align="center" width="20%" bgcolor="#355C7D"><a
-						href="MemberList" style="text-decoration: none"><font
-							color="white" size="4" onMouseover="this.style.color='black';"
-							onMouseout="this.style.color='white';">고객 정보</font></a></td>
-				</c:when>
-				<c:otherwise>
-					<td align="center" width="20%" bgcolor="#355C7D"><a
-						href="MemberInfo?id=<%=id%>" style="text-decoration: none"><font
-							color="white" size="4" onMouseover="this.style.color='black';"
-							onMouseout="this.style.color='white';">고객정보</font></a></td>
-				</c:otherwise>
-			</c:choose>
+
 		</tr>
 
 	</table>
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="js/bootstrap.js"></script>
+
 
 </body>
 </html>

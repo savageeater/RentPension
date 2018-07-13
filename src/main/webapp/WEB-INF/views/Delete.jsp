@@ -16,7 +16,6 @@
 	session.setAttribute("deleteNum", regno);
 	%>
 	<script>
-		
 		x = confirm('확실합니까?');
 		// document.write(x);
 		if(!x){
