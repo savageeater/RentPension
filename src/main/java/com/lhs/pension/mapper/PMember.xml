@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lhs.pension.dao.PMemberIDao">
+
+	<insert id="insert">
+		INSERT INTO P_MEMBER(
+		id, pass, email, tel, age, region)
+		VALUES (#{id},#{pass},#{email},#{tel},#{age},#{region})
+	</insert>
+
+	<delete id="delete">
+		DELETE FROM P_MEMBER, RENT_RESERVE WHERE ID = #{id}
+	</delete>
+
+	<update id="update">
+		UPDATE P_MEMBER SET EMAIL=#{email}, TEL=#{tel},
+		HOBBY=#{region} WHERE ID = #{id}
+	</update>
+
+	<select id="select"
+		resultType="com.lhs.pension.dto.PMember">
+		SELECT id, pass, email, tel, age, region,
+		 FROM P_MEMBER
+		WHERE ID = #{id}
+	</select>
+
+	<select id="selectAll"
+		resultType="com.lhs.pension.dto.PMember">
+		SELECT id, pass, email, tel, age, region FROM P_MEMBER
+	</select>
+
+	<select id="login" resultType="int">
+		SELECT COUNT(*) FROM P_MEMBER
+		WHERE ID=#{id} AND PASS=#{pass}
+	</select>
+
+	<select id="getAllCount" resultType="java.lang.Integer">
+		SELECT COUNT(*) FROM
+		P_MEMBER
+	</select>
+
+</mapper>

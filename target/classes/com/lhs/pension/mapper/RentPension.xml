@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lhs.pension.dao.RentPensionIDao">
+
+	<resultMap type="com.lhs.pension.dto.RentPension" id="result">
+		<result column="NO" property="no" />
+		<result column="NAME" property="name" />
+		<result column="PRICE" property="price" />
+		<result column="IMG" property="img" />
+		<result column="INFO" property="info" />
+		<result column="MINP" property="minp" />
+		<result column="MAXP" property="maxp" />
+		<result column="REGION" property="region" />
+		<result column="SPA" property="spa" />
+		<result column="FULL" property="full" />
+		<result column="POOL" property="pool" />
+		<result column="TOILET" property="toilet" />
+		<result column="ROOM" property="room" />
+		<result column="BREAKFAST" property="breakfast" />
+	</resultMap>
+
+	<insert id="insert">
+		INSERT INTO RENT_PENSION(no, name, price, img, info, minp, maxp, region, spa, full, pool, toilet, room, breakfast)
+		VALUES(RENT_PENSION_SEQ.NEXTVAL, #{name},#{price}, #{img}, #{info},#{minp},#{maxp},#{region},#{spa},#{full},#{pool},#{toilet},#{room},#{breakfast})
+	</insert>
+	
+	<select id="selectAll" resultMap="result">
+		SELECT no, name, price, img, info, minp, maxp, region, spa, full, pool, toilet, room, breakfast FROM RENT_PENSION
+	</select>
+	
+	<select id="selectVo" resultType="com.lhs.pension.dto.RentPension">
+		SELECT no, name, price, img, info, minp, maxp, region, spa, full, pool, toilet, room, breakfast FROM RENT_PENSION
+		WHERE NO = #{no}
+	</select>
+	
+	<!--
+	<select id="selectKey" resultMap="result">
+		SELECT no, name, price, img, info, minp, maxp, region, spa, full, pool, toilet, room, breakfast FROM RENT_PENSION
+		WHERE CATEGORY = #{category}
+	</select>
+	  -->
+	  
+	<update id="update">
+		UPDATE RENT_PENSION SET
+		NAME = #{name},
+		PRICE = #{price},
+		IMG = #{img},
+		INFO = #{info},
+		minp = #{minp},
+		maxp = #{maxp},
+		region = #{region},
+		spa = #{spa},
+		full = #{full},
+		pool = #{pool},
+		toilet = #{toilet},
+		room = #{room},
+		breakfast = #{breakfast},
+		WHERE NO = #{no}
+	</update>
+	
+	<delete id="delete">
+		DELETE FROM RENT_PENSION
+		WHERE NO = #{no}
+	</delete>
+	
+	<select id="curraval" resultType="int">
+		SELECT RENT_PENSION_SEQ.CURRVAL FROM DUAL
+	</select>
+	
+	<select id="login" resultType="int">
+		SELECT COUNT(*) FROM P_MEMBER
+		WHERE ID=#{id} AND PASS=#{pass}
+	</select>
+	
+	<select id="allcount" resultType="int">
+		SELECT COUNT(*) FROM RENT_PENSION
+	</select>
+	
+</mapper>
