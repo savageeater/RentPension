@@ -41,12 +41,12 @@ public class BoardController {
 		int num = dao.getAllCount();
 		model.addAttribute("BoardList", dao.selectAll());
 		model.addAttribute("num", num);
-		return "Main.jsp?center=BoardList";
+		return "Main.jsp?center=Board/BoardList";
 	}
 	
 	@RequestMapping("/BoardWriteForm")
 	public String writeForm(Model model, HttpServletRequest request) { // 게시글 작성 폼으로 이동
-		return "Main.jsp?center=BoardWriteForm";
+		return "Main.jsp?center=Board/BoardWriteForm";
 	}
 	
 	@RequestMapping("/BoardWriteProc") // 게시물 작성
@@ -75,7 +75,7 @@ public class BoardController {
 		
 		dao.insert(writer, email, subject, password, content);
 
-		return "redirect:BoardList";
+		return "redirect:Board/BoardList";
 	}
 	
 	@RequestMapping("/BoardInfo") // 게시물보기
@@ -84,12 +84,12 @@ public class BoardController {
 		String key = request.getParameter("num");
 		dao.upreadcnt(Integer.parseInt(request.getParameter("num")));
 		model.addAttribute("dto", dao.select(key));
-		return "Main.jsp?center=BoardInfo";
+		return "Main.jsp?center=Board/BoardInfo";
 	}
 	
 	@RequestMapping("/BoardDeleteForm")
 	public String boardDeleteForm(Model model, HttpServletRequest request) {
-		return "Main.jsp?center=BoardDeleteForm";
+		return "Main.jsp?center=Board/BoardDeleteForm";
 	}
 	
 	@RequestMapping("/BoardDeleteProc")
@@ -116,7 +116,7 @@ public class BoardController {
 		PBoardIDao dao = sqlSession.getMapper(PBoardIDao.class);
 		String num = request.getParameter("num");
 		model.addAttribute("dto", dao.select(num));
-		return "Main.jsp?center=BoardUpdateForm";
+		return "Main.jsp?center=Board/BoardUpdateForm";
 	}
 	
 	@RequestMapping("/BoardUpdateProc")
@@ -131,7 +131,7 @@ public class BoardController {
 		
 		if(dto.getPassword().equals(password)) {
 			dao.update(request.getParameter("subject"), request.getParameter("content"), num);
-			return "redirect:BoardInfo?num="+num;
+			return "redirect:Board/BoardInfo?num="+num;
 		}else {
 				out.println("<script>alert('수정할 수 없습니다.'); location.href='BoardUpdateForm?num="+num+"';</script>");
 				out.flush();
@@ -144,7 +144,7 @@ public class BoardController {
 		PBoardIDao dao = sqlSession.getMapper(PBoardIDao.class);
 		String num = request.getParameter("num");
 		model.addAttribute("dto", dao.select(num));
-		return "Main.jsp?center=BoardReWriteForm";
+		return "Main.jsp?center=Board/BoardReWriteForm";
 	}
 	
 	@RequestMapping("/BoardReWriteProc")
@@ -167,7 +167,7 @@ public class BoardController {
 		
 		dao.insert_reply(writer, email, subject, password, Integer.parseInt(ref), Integer.parseInt(re_step)+1, Integer.parseInt(re_level)+1, content);
 	
-		return "redirect:BoardList?pageNum="+backPage+"&pageBlock="+backBlock;
+		return "redirect:Board/BoardList?pageNum="+backPage+"&pageBlock="+backBlock;
 
 	}
 }

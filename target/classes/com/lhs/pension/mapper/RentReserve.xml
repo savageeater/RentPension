@@ -4,7 +4,7 @@
 
 <mapper namespace="com.lhs.pension.dao.RentReserveIDao">	
 	<select id="selectAllView" resultType="com.lhs.pension.dto.ReserveView">
-		SELECT IMG, NAME, PRICE, QTY, DDAY, RDAY, MEMID, BREAKFAST FROM RESERVE_VIEW
+		SELECT IMG, NAME, PRICE, QTY, DDAY, RDAY, MEMID, BREAKFAST, RE FROM RESERVE_VIEW
 		WHERE MEMID= #{memid}
 	</select>
 	
@@ -14,7 +14,7 @@
 		WHERE REGNO = #{regno}
 	</delete>
 	
-	<select id="selectVO"  resultType="com.lhs.rentpension.dto.RentReserve">
+	<select id="selectVO"  resultType="com.lhs.pension.dto.RentReserve">
 		SELECT * FROM RENT_RESERVE
 		WHERE REGNO = #{regno}
 	</select>

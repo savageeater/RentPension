@@ -49,20 +49,20 @@ public class PensionController {
 		RentPensionIDao dao = sqlSession.getMapper(RentPensionIDao.class);
 		model.addAttribute("num", dao.allcount());
 		model.addAttribute("carlist", dao.selectAll());
-		return "Main.jsp?center=UpdateList";
+		return "Main.jsp?center=Pension/UpdateList";
 	}
 	
-	@RequestMapping("/CarProcess")
+	@RequestMapping("/PensionProcess")
 	public String carProcess(Model model, HttpServletRequest request, HttpServletResponse response) throws Exception {
-		return "Main.jsp?center=CarProcess";
+		return "Main.jsp?center=Pension/PensionProcess";
 	}
 	
-	@RequestMapping("/UpdateCarInfo")
+	@RequestMapping("/UpdatePensionInfo")
 	public String updateCarInfo(Model model, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		RentPensionIDao dao = sqlSession.getMapper(RentPensionIDao.class);
 		int no = Integer.parseInt(request.getParameter("No"));
 		model.addAttribute("dto", dao.selectVo(no));
-		return "Main.jsp?center=UpdateCarInfo";
+		return "Main.jsp?center=Pension/UpdatePensionInfo";
 	}
 	
 	@RequestMapping("/UpdateCancel")
@@ -70,10 +70,10 @@ public class PensionController {
 		HttpSession session = request.getSession();
 		int backPage = Integer.parseInt(session.getAttribute("currentPage")+"");
 		int backBlock = Integer.parseInt(session.getAttribute("currentBlock")+"");
-		return "redirect:UpdateList?pageNum="+backPage+"&pageBlock="+backBlock;
+		return "redirect:Pension/UpdateList?pageNum="+backPage+"&pageBlock="+backBlock;
 	}
 	
-	@RequestMapping("/UpdateCarInfoProc")
+	@RequestMapping("/UpdatePensionInfoProc")
 	public String UpdateCarInfoProc(Model model, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		HttpSession session = request.getSession();
 		int backPage = Integer.parseInt(session.getAttribute("currentPage")+"");
@@ -92,6 +92,6 @@ public class PensionController {
 		
 		dao.update(dto);
 		
-		return "redirect:UpdateList?pageNum="+backPage+"&pageBlock="+backBlock;
+		return "redirect:Pension/UpdateList?pageNum="+backPage+"&pageBlock="+backBlock;
 	}
 }

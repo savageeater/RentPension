@@ -25,7 +25,7 @@ public class Parsing4Batch {
 		// ��ū���� ������ ���� �ʴٴµ� �ִ�. �̸� �ذ��ؾ� �Ѵ�.
 		Method[] methods = clazz.getMethods();
 		obj = clazz.newInstance();
-		List<Method> setters = new ArrayList<>();
+		List<Method> setters = new ArrayList();
 		for (int i = 0; i < methods.length; i++) {
 			if (!methods[i].getName().startsWith("set"))
 				continue;

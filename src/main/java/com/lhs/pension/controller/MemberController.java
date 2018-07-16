@@ -30,7 +30,7 @@ public class MemberController {
 
 	@RequestMapping("/MemberJoin")
 	public String memberJoin(Model model, HttpServletRequest request) {
-		return "Main.jsp?center=MemberJoin";
+		return "Main.jsp?center=Member/MemberJoin";
 	}
 
 	@RequestMapping("/JoinProc")
@@ -64,7 +64,7 @@ public class MemberController {
 		
 		session = request.getSession();
 		
-		Map<String,String> map = new HashMap<>();
+		Map<String,String> map = new HashMap();
 		map.put("id",id);
 		map.put("pass",pass);
 		int res = dao.login(map);
@@ -94,7 +94,7 @@ public class MemberController {
 		int num = dao.getAllCount();
 		model.addAttribute("MemberList", dao.selectAll());
 		model.addAttribute("num", num);
-		return "Main.jsp?center=MemberList";
+		return "Main.jsp?center=Member/MemberList";
 	}
 	
 	@RequestMapping("/MemberInfo")
@@ -109,7 +109,7 @@ public class MemberController {
 			return null;
 		}
 		model.addAttribute("dto", dao.select(key));
-		return "Main.jsp?center=MemberInfo";
+		return "Main.jsp?center=Member/MemberInfo";
 	}
 	
 	@RequestMapping("/MemberDeleteForm")
@@ -117,7 +117,7 @@ public class MemberController {
 		PMemberIDao dao = sqlSession.getMapper(PMemberIDao.class);
 		String id = request.getParameter("id");
 		model.addAttribute("dto", dao.select(id));
-		return "Main.jsp?center=MemberDeleteForm";
+		return "Main.jsp?center=Member/MemberDeleteForm";
 	}
 	
 	@RequestMapping("/MemberDeleteProc")
@@ -137,7 +137,7 @@ public class MemberController {
 			
 			return "redirect:Logout";
 		}else {
-			out.println("<script>alert('��ȣ�� Ʋ���ϴ�.'); location.href='MemberDeleteForm?id="+id+"';</script>");
+			out.println("<script>alert('��ȣ�� Ʋ���ϴ�.'); location.href='Member/MemberDeleteForm?id="+id+"';</script>");
 			out.flush();
 			return null;
 		}
@@ -148,7 +148,7 @@ public class MemberController {
 		PMemberIDao dao = sqlSession.getMapper(PMemberIDao.class);
 		String id = request.getParameter("id");
 		model.addAttribute("dto", dao.select(id));
-		return "Main.jsp?center=MemberUpdateForm";
+		return "Main.jsp?center=Member/MemberUpdateForm";
 	}
 	
 	@RequestMapping("/MemberUpdateProc")
@@ -168,9 +168,9 @@ public class MemberController {
 		if(dto.getPass().equals(pass)) {
 			dao.update(dto);
 			System.out.println("�����Ϸ�");
-			return "redirect:MemberInfo?id="+id;
+			return "redirect:Member/MemberInfo?id="+id;
 		}else {
-			out.println("<script>alert('��ȣ�� Ʋ���ϴ�.'); location.href='MemberUpdateForm?id="+id+"';</script>");
+			out.println("<script>alert('��ȣ�� Ʋ���ϴ�.'); location.href='Member/MemberUpdateForm?id="+id+"';</script>");
 			out.flush();
 			return null;
 		}
