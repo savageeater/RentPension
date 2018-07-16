@@ -78,8 +78,7 @@
 				<td width="100">아이디</td>
 				<td width="150">이메일</td>
 				<td width="200">전화</td>
-				<td width="100">직업</td>
-				<td width="250">취미</td>
+				<td width="100">지역</td>
 			</tr>
 			<%
 			for (PMember x : list) {
@@ -87,8 +86,8 @@
 			<tr height="50">
 				<td width="100"><a
 					href="MemberInfo?id=<%=x.getId()%>"> <%=x.getId()%></a></td>
-
 				<td width="200"><%=x.getTel()%></td>
+				<td width="200"><%=x.getRegion()%></td>
 
 			</tr>
 

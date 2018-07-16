@@ -41,6 +41,7 @@ public class MemberController {
 		dto.setPass(request.getParameter("pass"));
 
 		dto.setTel(request.getParameter("tel"));
+		dto.setRegion(request.getParameter("region"));
 
 		PMemberIDao dao = sqlSession.getMapper(PMemberIDao.class);
 		dao.insert(dto);
@@ -159,11 +160,14 @@ public class MemberController {
 		
 		String pass = request.getParameter("pass");
 		String id = request.getParameter("id");
+		
+
 		PMember dto = dao.select(id);
 		
 		//JSPMember_Dto dto2 = new JSPMember_Dto();
 
 		dto.setTel(request.getParameter("tel"));
+		dto.setRegion(request.getParameter("region"));
 		dto.setId(id);
 		if(dto.getPass().equals(pass)) {
 			dao.update(dto);

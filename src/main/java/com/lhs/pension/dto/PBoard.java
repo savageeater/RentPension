@@ -13,6 +13,7 @@ public class PBoard {
 	private int readcount;
 	private String content;
 	private String score;
+	
 	public int getRef() {
 		return ref;
 	}

@@ -30,12 +30,20 @@
 					<td><input type="tel" name="tel" size="40"
 						value="<%=dto.getTel()%>"></td>
 				</tr>
+				<tr height="50" align="center">
+					<td bgcolor="#cccccc">지역</td>
+					<td><input type="text" name="region" size="40"
+						value="<%=dto.getRegion()%>"></td>
+				</tr>
 
 
 				<tr height="50" align="center">
 					<td bgcolor="#cccccc">패스워드</td>
 					<td><input type="password" name="pass" size="40"></td>
 				</tr>
+				
+				
+				
 				<input type="hidden" name="id" value="<%=dto.getId()%>"></td>
 				<tr height="50" bgcolor="lightgreen" align="center">
 					<td colspan="2">

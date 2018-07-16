@@ -37,6 +37,11 @@ String joinroot=(String)session.getAttribute("joinroot");
 					<td width='550' align='left' bgcolor="lightgreen"><input type='tel' name='tel'
 						size='40'></td>
 				</tr>
+				<tr height='30'>
+					<td width='150' align='center' bgcolor="#cccccc">전화번호</td>
+					<td width='550' align='left' bgcolor="lightgreen"><input type='text' name='region'
+						size='40'></td>
+				</tr>
 
 				<tr height='30' bgcolor="lightgreen">
 					<td align='center' colspan='2'><input type='submit' value='가입하기' class="btn btn-default">

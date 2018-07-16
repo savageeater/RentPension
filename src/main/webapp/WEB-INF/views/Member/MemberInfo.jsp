@@ -27,7 +27,6 @@
 				<td bgcolor="#cccccc">아이디</td>
 				<td><%=dto.getId()%></td>
 			</tr>
-
 			<tr height="50" align="center">
 				<td bgcolor="#cccccc">전화</td>
 				<td><%=dto.getTel()%></td>
