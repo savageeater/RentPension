@@ -87,8 +87,8 @@
 				<td width="100"><a
 					href="MemberInfo?id=<%=x.getId()%>"> <%=x.getId()%></a></td>
 				<td width="200"><%=x.getTel()%></td>
+				<td width="200"><%=x.getEmail()%></td>
 				<td width="200"><%=x.getRegion()%></td>
-
 			</tr>
 
 			<%

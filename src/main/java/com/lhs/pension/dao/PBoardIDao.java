@@ -9,7 +9,7 @@ import com.lhs.pension.dto.PBoard;
 
 public interface PBoardIDao {
 	// �� ����
-	public int insert(String writer, String email, String subject, String password, String content) throws SQLException;
+	public int insert(String writer, String email, String subject, String password, String content, String score) throws SQLException;
 	// �� ��� ǥ��
 	public ArrayList<PBoard> selectAll() throws SQLException;
 	// Ư�� �� 

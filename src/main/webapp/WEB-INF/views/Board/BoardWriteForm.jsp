@@ -39,16 +39,28 @@
 					<td width="450"><textarea rows="10" cols="60" name="content"></textarea></td>
 				</tr>
 				<tr height="40">
+					<td align="center" width="150">별점</td>
+					<td width="50"><select name="score">
+							<option value="1">★</option>
+							<option value="2">★★</option>
+							<option value="3">★★★</option>
+							<option value="4">★★★★</option>
+							<option value="5">★★★★★</option>
+					</select></td>
+				</tr>
+				<tr height="40">
 					<td align="center" colspan="2" width="600"><input
-						type="submit" value="글쓰기" class="btn btn-default">&nbsp;&nbsp; <input type="reset"
-						value="다시작성" class="btn btn-default"> &nbsp;&nbsp;
+						type="submit" value="글쓰기" class="btn btn-default">&nbsp;&nbsp;
+						<input type="reset" value="다시작성" class="btn btn-default">
+						&nbsp;&nbsp;
 			</form>
-			<button onclick="location.href='BoardList'" class="btn btn-default">전체 게시글보기</button>
+			<button onclick="location.href='BoardList'" class="btn btn-default">전체
+				게시글보기</button>
 			</td>
 			</tr>
 		</table>
 	</center>
-<script
+	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="<c:url value="/resources/js/jquery-3.3.1.js" />"></script>
 </body>

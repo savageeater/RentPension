@@ -30,6 +30,13 @@
 					<td><input type="tel" name="tel" size="40"
 						value="<%=dto.getTel()%>"></td>
 				</tr>
+				
+				<tr height="50" align="center">
+					<td bgcolor="#cccccc">이메일</td>
+					<td><input type="email" name="email" size="40"
+						value="<%=dto.getEmail()%>"></td>
+				</tr>
+				
 				<tr height="50" align="center">
 					<td bgcolor="#cccccc">지역</td>
 					<td><input type="text" name="region" size="40"

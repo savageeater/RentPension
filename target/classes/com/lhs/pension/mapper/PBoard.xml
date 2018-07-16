@@ -5,7 +5,7 @@
 <mapper namespace="com.lhs.pension.dao.PBoardIDao">
 	<insert id="insert">
 		INSERT INTO P_BOARD(num, writer, email, subject, password, reg_date, ref, re_step, re_level, readcount, content, score)
-		VALUES(BOARD_SEQ.NEXTVAL, #{param1}, #{param2}, #{param3}, #{param4}, sysdate, (SELECT MAX(REF) FROM JSPBOARD)+1, 1, 1, 0, #{param5}, #{param6})
+		VALUES(P_BOARD_SEQ.NEXTVAL, #{param1}, #{param2}, #{param3}, #{param4}, sysdate, (SELECT MAX(REF) FROM P_BOARD)+1, 1, 1, 0, #{param5}, #{param6})
 	</insert>
 	
 	<select id="selectAll" resultType="com.lhs.pension.dto.PBoard">
@@ -27,7 +27,7 @@
 	</update>
 	
 	<insert id="insert_reply"> <!-- 답변글 -->
-		INSERT INTO P_BOARD VALUES(BOARD_SEQ.NEXTVAL, #{param1}, #{param2}, #{param3}, #{param4}, SYSDATE, #{param5}, #{param6}, #{param7}, 0, #{param8})
+		INSERT INTO P_BOARD VALUES(P_BOARD_SEQ.NEXTVAL, #{param1}, #{param2}, #{param3}, #{param4}, SYSDATE, #{param5}, #{param6}, #{param7}, 0, #{param8})
 	</insert>
 	
 	<update id="update">

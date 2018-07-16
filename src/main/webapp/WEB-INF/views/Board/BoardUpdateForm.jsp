@@ -55,6 +55,17 @@
 					<td width="480" colspan="3"><textarea rows="10" cols="70"
 							name="content" align="left"><%=dto.getContent()%></textarea></td>
 				</tr>
+				<tr height="40" align="center">
+					<td width="120" align="center" bgcolor="lightGreen">점수</td>
+					<td width="50" colspan="3">	
+					<select name="score">
+							<option value="1">★</option>
+							<option value="2">★★</option>
+							<option value="3">★★★</option>
+							<option value="4">★★★★</option>
+							<option value="5">★★★★★</option>
+					</select></td>
+				</tr>
 				<tr>
 
 					<td colspan="4" align="center"><input type="hidden" name="num"

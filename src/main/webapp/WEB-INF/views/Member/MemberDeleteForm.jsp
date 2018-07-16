@@ -37,7 +37,6 @@
 						<button onclick="location.href='MemberInfo?id=<%=dto.getId() %>'" class="btn btn-default">취소하기</button>
 					</td>
 				</tr>
-
 			</table>
 	</center>
 	<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

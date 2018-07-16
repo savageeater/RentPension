@@ -4,7 +4,7 @@
 
 <mapper namespace="com.lhs.pension.dao.RentReserveIDao">	
 	<select id="selectAllView" resultType="com.lhs.pension.dto.ReserveView">
-		SELECT IMG, NAME, PRICE, QTY, DDAY, RDAY, MEMID, BREAKFAST, RE FROM RESERVE_VIEW
+		SELECT IMG, NAME, PRICE, QTY, DDAY, RDAY, MEMID, BREAKFAST,REGNO FROM RESERVE_VIEW
 		WHERE MEMID= #{memid}
 	</select>
 	

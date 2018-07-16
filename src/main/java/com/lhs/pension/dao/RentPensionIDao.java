@@ -24,9 +24,7 @@ public interface RentPensionIDao<T,K> {
 	public List<T> selectPart(int start,int end)  
 			throws SQLException;
 	public int getCurrval() throws SQLException;
-	
-	
-	
+
 	public List<RentPension> selectAll() throws SQLException;
 	
 	public int allcount() throws SQLException;

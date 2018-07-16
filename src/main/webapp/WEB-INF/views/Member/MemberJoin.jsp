@@ -38,7 +38,7 @@ String joinroot=(String)session.getAttribute("joinroot");
 						size='40'></td>
 				</tr>
 				<tr height='30'>
-					<td width='150' align='center' bgcolor="#cccccc">전화번호</td>
+					<td width='150' align='center' bgcolor="#cccccc">거주 지역</td>
 					<td width='550' align='left' bgcolor="lightgreen"><input type='text' name='region'
 						size='40'></td>
 				</tr>

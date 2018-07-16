@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -52,7 +53,7 @@ public class BoardController {
 	@RequestMapping("/BoardWriteProc") // 게시물 작성
 	public String writeProc(Model model, HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
 		
-		System.out.println("write()");
+		
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter(); 
 
@@ -63,6 +64,7 @@ public class BoardController {
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 		String content = request.getParameter("content");
+		String score = request.getParameter("score");
 		
 		PBoardIDao dao = sqlSession.getMapper(PBoardIDao.class);
 		
@@ -73,9 +75,9 @@ public class BoardController {
 		}
 		
 		
-		dao.insert(writer, email, subject, password, content);
-
-		return "redirect:Board/BoardList";
+		dao.insert(writer, email, subject, password, content,score);
+		System.out.println("write()");
+		return "redirect:BoardList";
 	}
 	
 	@RequestMapping("/BoardInfo") // 게시물보기

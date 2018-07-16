@@ -5,6 +5,12 @@ public class PMember {
 	private String pass;
 	private String email;
 	private String tel;
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	private int age;
 	private String region;
 	
@@ -20,12 +26,7 @@ public class PMember {
 	public void setPass(String pass) {
 		this.pass = pass;
 	}
-	public String getEmial() {
-		return email;
-	}
-	public void setEmial(String emial) {
-		this.email = emial;
-	}
+
 	public String getTel() {
 		return tel;
 	}

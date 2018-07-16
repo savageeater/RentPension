@@ -38,6 +38,29 @@
 				<td align="center" colspan="3"><%=dto.getSubject()%></td>
 			</tr>
 			<tr height="40">
+				<td align="center" width="120" bgcolor="skyblue">별점</td>
+				<td align="center" colspan="3"><%
+				switch(dto.getScore()){
+				case "1":
+					%>★<%
+					break;
+				case "2":
+					%>★★<%
+					break;					
+				case "3":
+					%>★★★<%
+					break;					
+				case "4":
+					%>★★★★<%
+					break;					
+				case "5":
+					%>★★★★★<%
+					break;					
+				}
+				%></td>
+			</tr>	
+		
+			<tr height="40">
 				<td align="center" width="120" bgcolor="skyblue">글내용</td>
 				<td align="center" colspan="3"><%=dto.getContent()%></td>
 			</tr>

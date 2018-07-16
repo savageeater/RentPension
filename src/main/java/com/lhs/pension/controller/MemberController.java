@@ -39,7 +39,7 @@ public class MemberController {
 		PMember dto = new PMember();
 		dto.setId(request.getParameter("id"));
 		dto.setPass(request.getParameter("pass"));
-
+		dto.setEmail(request.getParameter("email"));
 		dto.setTel(request.getParameter("tel"));
 		dto.setRegion(request.getParameter("region"));
 
@@ -165,7 +165,7 @@ public class MemberController {
 		PMember dto = dao.select(id);
 		
 		//JSPMember_Dto dto2 = new JSPMember_Dto();
-
+		dto.setEmail(request.getParameter("email"));
 		dto.setTel(request.getParameter("tel"));
 		dto.setRegion(request.getParameter("region"));
 		dto.setId(id);

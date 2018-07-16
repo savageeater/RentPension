@@ -31,11 +31,17 @@
 				<td bgcolor="#cccccc">전화</td>
 				<td><%=dto.getTel()%></td>
 			</tr>
-
 			<tr height="50" align="center">
-				<td bgcolor="#cccccc">연령대</td>
+				<td bgcolor="#cccccc">나이</td>
 				<td><%=dto.getAge()%></td>
+			</tr>			<tr height="50" align="center">
+				<td bgcolor="#cccccc">E-MAIL</td>
+				<td><%=dto.getEmail()%></td>
+			</tr>			<tr height="50" align="center">
+				<td bgcolor="#cccccc">거주 지역</td>
+				<td><%=dto.getRegion()%></td>
 			</tr>
+			
 
 			<tr height="50" bgcolor="lightgreen">
 				<td colspan="2" align="center">

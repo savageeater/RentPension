@@ -41,7 +41,7 @@ public class RentController {
 		System.out.println(session.getAttribute("id"));
 		
 		if(session.getAttribute("id")==null) {
-			out.println("<script>alert('�α��� �� �ٽ� �õ����ּ���.'); location.href='Login';</script>");
+			out.println("<script>alert('로그인 후 이용가능합니다.'); location.href='Login';</script>");
 			out.flush();
 			return null;
 		}else {
@@ -123,16 +123,15 @@ public class RentController {
 		int no = Integer.parseInt(request.getParameter("no"));
 		int dday = Integer.parseInt(request.getParameter("dday"));
 		String rday = request.getParameter("rday");
-		int insurance = Integer.parseInt(request.getParameter("insurance"));
+
 		int wifi = Integer.parseInt(request.getParameter("wifi"));
-		int navigation = Integer.parseInt(request.getParameter("navigation"));
-		int babyseat = Integer.parseInt(request.getParameter("babyseat"));
+
 		int qty = Integer.parseInt(request.getParameter("qty"));
 		HttpSession session = request.getSession();
 		String memid = (String)session.getAttribute("id");
 		
 		if(rday.isEmpty() || rday.equals("")) {
-			out.println("<script>alert('��¥�� �Է����ּ���.'); location.href='CarReserveInfo?no="+no+"';</script>");
+			out.println("<script>alert('��¥�� �Է����ּ���.'); location.href='PensionReserveInfo?no="+no+"';</script>");
 			out.flush();
 			return null;
 		}
@@ -159,7 +158,7 @@ public class RentController {
 		
 		int res = d1.compareTo(d2);// -1,0,1
 		if(res == -1) {
-			out.println("<script>alert('���� ���� ��¥�� �����Ϸ� ����� �� �����ϴ�.'); location.href='CarReserveInfo?no="+no+"';</script>");
+			out.println("<script>alert('���� ���� ��¥�� �����Ϸ� ����� �� �����ϴ�.'); location.href='PensionReserveInfo?no="+no+"';</script>");
 			out.flush();
 			return null;
 		}else if(memid==null || memid.equals("")) {
@@ -174,7 +173,7 @@ public class RentController {
 		model.addAttribute("dto", dto);
 		model.addAttribute("dto2", dto2);
 		
-		return "Main.jsp?center=Pension/CarReserveResult";
+		return "Main.jsp?center=Pension/PensionReserveResult";
 	}
 	@RequestMapping("/PensionCategoryList")
 	public String carCategoryList(Model model, HttpServletRequest request, HttpServletResponse response) throws SQLException {
