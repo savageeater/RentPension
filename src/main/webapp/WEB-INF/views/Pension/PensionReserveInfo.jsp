@@ -23,7 +23,7 @@
 %>
 <center>
 
-		<form action="CarOptionSelect" method="post">
+		<form action="PensionOptionSelect" method="post">
 			<table width="100%">
 				<tr height="100">
 					<td align="center" colspan="3"><font size="6" color="gray"><%=dto.getName() %>차량

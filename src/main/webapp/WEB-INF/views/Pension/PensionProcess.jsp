@@ -10,8 +10,8 @@
 </head>
 <body>
 <center>
-	<button onclick="location.href='BatchForm'" class="btn btn-default" style="height:100px; width:720px;">차량 등록</button>
-	<button onclick="location.href='UpdateList'" class="btn btn-default" style="height:100px; width:720px;">차량 수정</button>
+	<button onclick="location.href='BatchForm'" class="btn btn-default" style="height:100px; width:720px;">펜션 등록</button>
+	<button onclick="location.href='UpdateList'" class="btn btn-default" style="height:100px; width:720px;">펜션 수정</button>
 </center>
 </body>
 </html>

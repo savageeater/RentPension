@@ -15,16 +15,31 @@
 		
 			category = Integer.parseInt(request.getParameter("category"));
 			if (category == 1) {
-				type = "소형";
+				type = "경기도";
 			}
 			if (category == 2) {
-				type = "중형";
+				type = "강원도";
 			}
 			if (category == 3) {
-				type = "대형";
-			}
+				type = "충청남도";
+			}			
+			if (category == 4) {
+				type = "충청북도";
+			}			
+			if (category == 5) {
+				type = "경상남도";
+			}			
+			if (category == 6) {
+				type = "경상북도";
+			}			
+			if (category == 7) {
+				type = "전라남도";
+			}			
+			if (category == 8) {
+				type = "전라북도";
+			}			
 			if (category == 0) {
-				response.sendRedirect("Main.jsp?center=CarReserveMain");
+				response.sendRedirect("Main.jsp?center=PensionReserveMain");
 			}
 			
 		List<RentPension> list2 = (List<RentPension>)request.getAttribute("category");
@@ -78,7 +93,7 @@
 	<center>
 		<table>
 			<tr>
-				<td align="center" colspan="3"><font size="6" color="gray"><%=type%>렌트카
+				<td align="center" colspan="3"><font size="6" color="gray"><%=type%> 펜션
 						보기</font></td>
 			</tr>
 
@@ -92,11 +107,11 @@
 				%>
 
 				<td width="33%" align="center"><a
-					href="CarReserveInfo?no=<%=dto.getNo()%>&fromPage=CarCategoryList&category=<%=category%>">
+					href="PensionReserveInfo?no=<%=dto.getNo()%>&fromPage=PensionCategoryList&category=<%=category%>">
 						<img alt="" src="resources/img/<%=dto.getImg()%>" width="300" height="200">
 				</a>
 					<p>
-						<font size="3" color="gray"><b>차량명 : <%=dto.getName()%></b></font></td>
+						<font size="3" color="gray"><b>펜션 이름 : <%=dto.getName()%></b></font></td>
 				<%
 					if (i % 3 == 2 || i == (list.size() - 1)) {
 				%>
@@ -108,7 +123,7 @@
 
 		</table>
 		<%
-			out.write(pm.getPagenation("CarCategoryList"));
+			out.write(pm.getPagenation("PensionCategoryList"));
 		%>
 
 

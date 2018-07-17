@@ -35,12 +35,12 @@
 		WHERE NO = #{no}
 	</select>
 	
-	<!--
+
 	<select id="selectKey" resultMap="result">
 		SELECT no, name, price, img, info, minp, maxp, region, spa, full, pool, toilet, room, breakfast FROM RENT_PENSION
-		WHERE CATEGORY = #{category}
+		WHERE REGION = #{region}
 	</select>
-	  -->
+
 	  
 	<update id="update">
 		UPDATE RENT_PENSION SET

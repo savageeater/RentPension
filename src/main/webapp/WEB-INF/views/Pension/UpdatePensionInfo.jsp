@@ -56,7 +56,6 @@
 							<option value="8" <c:if test="${dto.usepeople eq '6'}">selected="selected"</c:if>>6인승</option>	
 							<option value="8" <c:if test="${dto.usepeople eq '7'}">selected="selected"</c:if>>7인승</option>	
 							<option value="8" <c:if test="${dto.usepeople eq '8'}">selected="selected"</c:if>>8인승</option>	
-									
 					</select></td>
 				</tr>
 

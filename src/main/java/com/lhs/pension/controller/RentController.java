@@ -91,7 +91,7 @@ public class RentController {
 	}
 	
 	@RequestMapping("/PensionReserveMain")
-	public String carReserveMain(Model model, HttpServletRequest request, HttpServletResponse response) throws SQLException {
+	public String pensionReserveMain(Model model, HttpServletRequest request, HttpServletResponse response) throws SQLException {
 		RentPensionIDao dao = sqlSession.getMapper(RentPensionIDao.class);
 		model.addAttribute("allcount", dao.allcount());
 		model.addAttribute("list", dao.selectAll());
@@ -99,14 +99,14 @@ public class RentController {
 	}
 	
 	@RequestMapping("/PensionReserveInfo")
-	public String carReserveInfo(Model model, HttpServletRequest request, HttpServletResponse response) throws SQLException {
+	public String pensionReserveInfo(Model model, HttpServletRequest request, HttpServletResponse response) throws SQLException {
 		RentPensionIDao dao = sqlSession.getMapper(RentPensionIDao.class);
 		int no = Integer.parseInt(request.getParameter("no"));
 		model.addAttribute("dto", dao.selectVo(no));
 		return "Main.jsp?center=Pension/PensionReserveInfo";
 	}
 	@RequestMapping("/PensionOptionSelect")
-	public String carOptionSelect(Model model, HttpServletRequest request, HttpServletResponse response) throws SQLException {
+	public String pensionOptionSelect(Model model, HttpServletRequest request, HttpServletResponse response) throws SQLException {
 		RentPensionIDao dao = sqlSession.getMapper(RentPensionIDao.class);
 		int no = Integer.parseInt(request.getParameter("no"));
 		model.addAttribute("dto", dao.selectVo(no));
@@ -114,7 +114,7 @@ public class RentController {
 	}
 	
 	@RequestMapping("/PensionReserveResult")
-	public String carReserveResult(Model model, HttpServletRequest request, HttpServletResponse response) throws SQLException, ParseException, IOException {
+	public String pensionReserveResult(Model model, HttpServletRequest request, HttpServletResponse response) throws SQLException, ParseException, IOException {
 		RentPensionIDao dao = sqlSession.getMapper(RentPensionIDao.class);
 		RentReserveIDao dao2 = sqlSession.getMapper(RentReserveIDao.class);
 		response.setContentType("text/html; charset=UTF-8");
@@ -176,20 +176,19 @@ public class RentController {
 		return "Main.jsp?center=Pension/PensionReserveResult";
 	}
 	@RequestMapping("/PensionCategoryList")
-	public String carCategoryList(Model model, HttpServletRequest request, HttpServletResponse response) throws SQLException {
+	public String pensionCategoryList(Model model, HttpServletRequest request, HttpServletResponse response) throws SQLException {
 		RentPensionIDao dao = sqlSession.getMapper(RentPensionIDao.class);
 		int category = Integer.parseInt(request.getParameter("category"));
 		
 		model.addAttribute("category", dao.selectKey(category));
 
-		return "Main.jsp?center=Pension/CategoryList";
+		return "Main.jsp?center=Pension/PensionCategoryList";
 	}
 	
 	@RequestMapping("/PensionAllList")
-	public String carAllList(Model model, HttpServletRequest request, HttpServletResponse response) throws SQLException {
+	public String pensionAllList(Model model, HttpServletRequest request, HttpServletResponse response) throws SQLException {
 		RentPensionIDao dao = sqlSession.getMapper(RentPensionIDao.class);
 		model.addAttribute("list", dao.selectAll());
-
 		return "Main.jsp?center=Pension/PensionAllList";
 	}
 	

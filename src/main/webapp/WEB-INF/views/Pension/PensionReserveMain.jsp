@@ -20,7 +20,6 @@
 		//int nums = (int)request.getAttribute("allcount");
 		list = (List<RentPension>)request.getAttribute("list");
 		//list = list.subList(nums-3, nums);
-
 	%>
 	<table width="1000">
 		<tr>
@@ -33,7 +32,7 @@
 				for (RentPension x : list) {
 			%>
 			<td width="333" align="center">
-				<a href="CarReserveInfo?no=<%=x.getNo()%>">
+				<a href="PensionReserveInfo?no=<%=x.getNo()%>">
 					<img alt=""	src="resources/img/<%=x.getImg()%>" width="300" height="200">
 				</a>
 				<p>차량명 : <%=x.getName() %></td>
@@ -45,16 +44,21 @@
 </table>
 <hr color="red" size="3">
 <p>	
-	<form action="CarCategoryList" method="post">
+	<form action="PensionCategoryList" method="post">
 
-		<font size="3" color="gray"><b>차량검색하기</b></font>&nbsp;&nbsp;
+		<font size="3" color="gray"><b>지역검색</b></font>&nbsp;&nbsp;
 		<select name = "category" class="form-control" style="width:300px;">
-			<option value="1">소형</option>
-			<option value="2">중형</option> 
-			<option value="3">대형</option>  
+			<option value="1">경기도</option>
+			<option value="2">강원도</option> 
+			<option value="3">충청남도</option>
+			<option value="4">충청북도</option>
+			<option value="5">경상남도</option>
+			<option value="6">경상북도</option>
+			<option value="7">전라남도</option>
+			<option value="8">전라북도</option>  
 		</select><br>
 		<input type="submit" value="검색" class="btn btn-default">&nbsp;&nbsp;&nbsp;
-		<button type="button" onclick="location.href='CarAllList'" class="btn btn-default">전체검색</button>
+		<button type="button" onclick="location.href='PensionAllList'" class="btn btn-default">전체검색</button>
 	</form>
 	
 	
