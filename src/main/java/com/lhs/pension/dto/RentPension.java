@@ -8,11 +8,18 @@ public class RentPension {
 	private String info;
 	private int minp;
 	private int maxp;
-	private String region;
+	private int region;
 	private int spa;
 	private int full;
 	private int pool;
 	private int toilet;
+	@Override
+	public String toString() {
+		return "RentPension [no=" + no + ", name=" + name + ", price=" + price + ", img=" + img + ", info=" + info
+				+ ", minp=" + minp + ", maxp=" + maxp + ", region=" + region + ", spa=" + spa + ", full=" + full
+				+ ", pool=" + pool + ", toilet=" + toilet + ", room=" + room + ", breakfast=" + breakfast + ", wifi="
+				+ wifi + "]";
+	}
 	private int room;
 	private int breakfast;
 	private int wifi;
@@ -58,10 +65,10 @@ public class RentPension {
 	public void setMaxp(int maxp) {
 		this.maxp = maxp;
 	}
-	public String getRegion() {
+	public int getRegion() {
 		return region;
 	}
-	public void setRegion(String region) {
+	public void setRegion(int region) {
 		this.region = region;
 	}
 	public int getSpa() {

@@ -24,8 +24,7 @@ public interface PBoardIDao {
 	public int re_level_up(String ref, String re_level) throws SQLException;
 	// ��ȸ�� ����
 	public int upreadcnt(int num) throws SQLException;
-	
-	
+
 	public int getAllCount() throws SQLException;
 	public List<PBoard> selectPart(int key1, int key2) throws SQLException;
 	public List<PBoard> selectPart2(int key1, int key2) throws SQLException;

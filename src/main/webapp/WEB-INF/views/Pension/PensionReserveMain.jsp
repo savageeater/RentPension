@@ -24,7 +24,7 @@
 	<table width="1000">
 		<tr>
 			<td align="center" colspan="3">
-				<font size="6" color="gray">최신등록차량</font>
+				<font size="6" color="gray">추천 펜션</font>
 			</td>
 		</tr>
 		<tr height="240">
@@ -35,7 +35,7 @@
 				<a href="PensionReserveInfo?no=<%=x.getNo()%>">
 					<img alt=""	src="resources/img/<%=x.getImg()%>" width="300" height="200">
 				</a>
-				<p>차량명 : <%=x.getName() %></td>
+				<p>펜션 이름 : <%=x.getName() %></td>
 			<%
 				}
 			%>
@@ -45,7 +45,6 @@
 <hr color="red" size="3">
 <p>	
 	<form action="PensionCategoryList" method="post">
-
 		<font size="3" color="gray"><b>지역검색</b></font>&nbsp;&nbsp;
 		<select name = "category" class="form-control" style="width:300px;">
 			<option value="1">경기도</option>
@@ -60,8 +59,7 @@
 		<input type="submit" value="검색" class="btn btn-default">&nbsp;&nbsp;&nbsp;
 		<button type="button" onclick="location.href='PensionAllList'" class="btn btn-default">전체검색</button>
 	</form>
-	
-	
+
 </center>
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="js/bootstrap.js"></script>

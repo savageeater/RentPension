@@ -22,22 +22,22 @@
 	</resultMap>
 
 	<insert id="insert">
-		INSERT INTO RENT_PENSION(no, name, price, img, info, minp, maxp, region, spa, full, pool, toilet, room, breakfast)
-		VALUES(RENT_PENSION_SEQ.NEXTVAL, #{name},#{price}, #{img}, #{info},#{minp},#{maxp},#{region},#{spa},#{full},#{pool},#{toilet},#{room},#{breakfast})
+		INSERT INTO RENT_PENSION(no, name, price, img, info, minp, maxp, region, spa, full, pool, toilet, room, breakfast,wifi)
+		VALUES(RENT_PENSION_SEQ.NEXTVAL, #{name},#{price}, #{img}, #{info},#{minp},#{maxp},#{region},#{spa},#{full},#{pool},#{toilet},#{room},#{breakfast},#{wifi})
 	</insert>
 	
 	<select id="selectAll" resultMap="result">
-		SELECT no, name, price, img, info, minp, maxp, region, spa, full, pool, toilet, room, breakfast FROM RENT_PENSION
+		SELECT no, name, price, img, info, minp, maxp, region, spa, full, pool, toilet, room, breakfast,wifi FROM RENT_PENSION
 	</select>
 	
 	<select id="selectVo" resultType="com.lhs.pension.dto.RentPension">
-		SELECT no, name, price, img, info, minp, maxp, region, spa, full, pool, toilet, room, breakfast FROM RENT_PENSION
+		SELECT no, name, price, img, info, minp, maxp, region, spa, full, pool, toilet, room, breakfast,wifi FROM RENT_PENSION
 		WHERE NO = #{no}
 	</select>
 	
 
 	<select id="selectKey" resultMap="result">
-		SELECT no, name, price, img, info, minp, maxp, region, spa, full, pool, toilet, room, breakfast FROM RENT_PENSION
+		SELECT no, name, price, img, info, minp, maxp, region, spa, full, pool, toilet, room, breakfast,wifi FROM RENT_PENSION
 		WHERE REGION = #{region}
 	</select>
 
@@ -57,6 +57,7 @@
 		toilet = #{toilet},
 		room = #{room},
 		breakfast = #{breakfast},
+		wifi = #{wifi}
 		WHERE NO = #{no}
 	</update>
 	

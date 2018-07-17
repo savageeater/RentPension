@@ -11,9 +11,12 @@
 <body>
 	<%
 		String type = "";
-		int category = 0;
+		
+	
+	int category = 0;
 		
 			category = Integer.parseInt(request.getParameter("category"));
+
 			if (category == 1) {
 				type = "경기도";
 			}
@@ -38,11 +41,12 @@
 			if (category == 8) {
 				type = "전라북도";
 			}			
-			if (category == 0) {
+
+			if (category ==0) {
 				response.sendRedirect("Main.jsp?center=PensionReserveMain");
 			}
 			
-		List<RentPension> list2 = (List<RentPension>)request.getAttribute("category");
+		List<RentPension> list2 = (List<RentPension>)request.getAttribute("category");// category
 			
 
 		//=============================================================

@@ -41,15 +41,11 @@
 		<table width="85%">
 			<tr align="center" bgcolor="lightgreen">
 				<td>예약번호</td>
-				<td>차량이미지</td>
-				<td>차종</td>
+				<td>펜션</td>
+				<td>펜션명</td>
 				<td>예약일</td>
 				<td>대여일수</td>
 				<td>대여수량</td>
-				<td>보험</td>
-				<td>WIFI</td>
-				<td>NAVI</td>
-				<td>BBST</td>
 				<td>대여금액내역</td>
 				<td>수정</td>
 				<td>예약취소</td>
@@ -72,7 +68,7 @@
 						onclick="location.href='Adjust?regno=<%=regno%>&img=<%=img%>'"
 						class="btn btn-default">수정</button></td>
 				<td><button onclick="location.href='Delete?regno=<%=regno%>'"
-						class="btn btn-default">예취</button></td>
+						class="btn btn-default">예약취소</button></td>
 			</tr>
 			<%
 				}

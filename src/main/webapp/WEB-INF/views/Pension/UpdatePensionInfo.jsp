@@ -37,7 +37,6 @@
 						<input type="radio" name="category" value="1" <c:if test="${dto.category eq '1'}">checked="checked"</c:if>/>소형
 						<input type="radio" name="category" value="2" <c:if test="${dto.category eq '2'}">checked="checked"</c:if>/>중형
 						<input type="radio" name="category" value="3" <c:if test="${dto.category eq '3'}">checked="checked"</c:if>/>대형
-					
 					</td>
 				</tr>
 				<tr>

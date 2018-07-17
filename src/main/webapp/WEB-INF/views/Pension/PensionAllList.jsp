@@ -54,7 +54,7 @@
 	<center>
 		<table>
 			<tr>
-				<td align="center" colspan="3"><font size="6" color="gray">전체렌트카보기(<%=currentPage%>/<%=pm.pageCount %>)</font>
+				<td align="center" colspan="3"><font size="6" color="gray">펜션 전체보기(<%=currentPage%>/<%=pm.pageCount %>)</font>
 				</td>
 			</tr>
 			<%
@@ -72,7 +72,7 @@
 						<img alt="" src="resources/img/<%=dto.getImg()%>" width="300" height="200">
 				</a>
 					<p>
-						<font size="3" color="gray"><b>차량명 : <%=dto.getName()%></b></font></td>
+						<font size="3" color="gray"><b>펜션 이름 : <%=dto.getName()%></b></font></td>
 				<%
 					j += 1;
 

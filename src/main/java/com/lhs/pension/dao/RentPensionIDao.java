@@ -31,5 +31,5 @@ public interface RentPensionIDao<T,K> {
 	
 	public RentPension selectVo(int no) throws SQLException;
 	
-	public List<RentPension> selectKey(int key) throws SQLException;
+	public List<RentPension> selectKey(int category) throws SQLException;
 }

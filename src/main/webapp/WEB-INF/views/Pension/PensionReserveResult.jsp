@@ -12,7 +12,10 @@
 	href="${pageContext.request.contextPath}/resources/css/bootstrap.css">
 <head>
 <%
-	request.setCharacterEncoding("utf-8");
+request.setCharacterEncoding("utf-8");
+RentReserve rbean = (RentReserve)request.getAttribute("dto2");
+RentPension rentpension = (RentPension)request.getAttribute("dto");
+
 	String id = (String) session.getAttribute("id");
 	if (id == null) {
 %>
@@ -22,36 +25,27 @@
 </script>
 <%
 	}
+	if(rbean.getQty()>rentpension.getMaxp()){
+		
+	}
 
-	RentReserve rbean = (RentReserve)request.getAttribute("dto2");
-	RentPension rentcar = (RentPension)request.getAttribute("dto");
+
 	String option = "";
 	int optionFee = 0;
 	int rentalFee = 0;
 
-		rentalFee = rbean.getDday() * rentcar.getPrice() * rbean.getQty();
-
-
-
-		if (rbean.getWifi() == 1) {
-			option += " 와이파이:" + (10000*rbean.getQty());
-			optionFee += 10000*rbean.getQty();
-		} else {
-			option += " 와이파이:" + (0);
+		rentalFee = rbean.getDday() * rentpension.getPrice();
+		
+		// 10000은 인원 추가시 개인별
+		
+		
+		if(rbean.getQty()>rentpension.getMinp()){
+		option += "숙박인원 추가요금:"+(10000*(rbean.getQty()-rentpension.getMinp()));
+		optionFee += (10000*(rbean.getQty()-rentpension.getMinp()));
+		}else{
+			option+="숙박인원 추가요금"+(0);
 		}
 
-		if (rbean.getWifi() == 1) {
-			option += " 네이게이션:" + "무료";
-		} else {
-			option += " 네이게이션:" + "미적용";
-		}
-
-		if (rbean.getWifi() == 1) {
-			option += " 베이비시트:" + (5000*rbean.getQty());
-			optionFee += 5000*rbean.getQty();
-		} else {
-			option += " 베이비시트:" + "미적용";
-		}
 
 	Date d1 = new Date();
 	Date d2 = new Date();
@@ -84,32 +78,32 @@
 				<td colspan="3" align="center"><font size="5" color="gray">예약결과</font></td>
 			</tr>
 			<tr>
-				<td rowspan="7"><img alt="" src="img/<%=rentcar.getImg()%>" /></td>
-				<td width="30%">차종</td>
-				<td width="40%"><%=rentcar.getName()%></td>
+				<td rowspan="7"><img alt="" src="img/<%=rentpension.getImg()%>" /></td>
+				<td width="30%">펜션 이름</td>
+				<td width="40%"><%=rentpension.getName()%></td>
 			</tr>
 			<tr>
-				<td width="30%">대여일자</td>
+				<td width="30%">예약 일자</td>
 				<td width="40%"><%=rbean.getRday()%>부터</td>
 			</tr>
 			<tr>
-				<td width="30%">대여일수</td>
+				<td width="30%">예약 일수</td>
 				<td width="40%"><%=rbean.getDday()%>일</td>
 			</tr>
 			<tr>
-				<td width="30%">대여수량</td>
+				<td width="30%">예약 인원</td>
 				<td width="40%"><%=rbean.getQty()%>대</td>
 			</tr>
 			<tr>
-				<td width="30%">대여금액</td>
+				<td width="30%">예약 금액</td>
 				<td width="40%"><%=rentalFee%>원</td>
 			</tr>
 			<tr>
-				<td width="30%">옵션금액</td>
+				<td width="30%">추가인원 금액</td>
 				<td width="40%"><%=optionFee%>원</td>
 			</tr>
 			<tr>
-				<td width="30%">옵션내역</td>
+				<td width="30%">추가인원 내역</td><!-- 수정必사항 -->
 				<td width="40%"><%=option%></td>
 			</tr>
 			<tr bgcolor="lightgray">
@@ -120,7 +114,7 @@
 				<td colspan="3" align="left"><font size="2" color="gray"><%=rbean.toString()%></font></td>
 			</tr>
 			<tr bgcolor="lightgray">
-				<td colspan="3" align="left"><font size="2" color="gray"><%=rentcar.toString()%></font></td>
+				<td colspan="3" align="left"><font size="2" color="gray"><%=rentpension.toString()%></font></td>
 			</tr>
 		</table>
 	</center>

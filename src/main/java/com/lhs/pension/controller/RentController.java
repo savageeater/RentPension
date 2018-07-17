@@ -103,6 +103,8 @@ public class RentController {
 		RentPensionIDao dao = sqlSession.getMapper(RentPensionIDao.class);
 		int no = Integer.parseInt(request.getParameter("no"));
 		model.addAttribute("dto", dao.selectVo(no));
+		
+		
 		return "Main.jsp?center=Pension/PensionReserveInfo";
 	}
 	@RequestMapping("/PensionOptionSelect")
@@ -131,7 +133,7 @@ public class RentController {
 		String memid = (String)session.getAttribute("id");
 		
 		if(rday.isEmpty() || rday.equals("")) {
-			out.println("<script>alert('��¥�� �Է����ּ���.'); location.href='PensionReserveInfo?no="+no+"';</script>");
+			out.println("<script>alert('��¥�� �Է����ּ���.'); location.href='Pension/PensionReserveInfo?no="+no+"';</script>");
 			out.flush();
 			return null;
 		}
