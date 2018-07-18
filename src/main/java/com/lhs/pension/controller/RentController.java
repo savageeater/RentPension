@@ -46,7 +46,7 @@ public class RentController {
 			return null;
 		}else {
 			session = request.getSession();
-			String id = (String)session.getAttribute("id");		
+			String id = (String)session.getAttribute("id");
 			List<ReserveView> list = dao.selectAllView(id);
 			model.addAttribute("list", list);
 			return "Main.jsp?center=ReserveView";
@@ -80,12 +80,8 @@ public class RentController {
 		dto.setRday(request.getParameter("rday"));
 		dto.setDday(Integer.parseInt(request.getParameter("dday")));
 		dto.setQty(Integer.parseInt(request.getParameter("qty")));
-
-		dto.setWifi(Integer.parseInt(request.getParameter("wifi")));
-
 		dto.setRegno(Integer.parseInt(request.getParameter("regno")));
 		dto.setMemid(request.getParameter("memid"));
-		
 		model.addAttribute("dto", dao.update(dto));
 		return "redirect:ReserveView";
 	}
@@ -103,8 +99,7 @@ public class RentController {
 		RentPensionIDao dao = sqlSession.getMapper(RentPensionIDao.class);
 		int no = Integer.parseInt(request.getParameter("no"));
 		model.addAttribute("dto", dao.selectVo(no));
-		
-		
+
 		return "Main.jsp?center=Pension/PensionReserveInfo";
 	}
 	@RequestMapping("/PensionOptionSelect")
@@ -112,11 +107,20 @@ public class RentController {
 		RentPensionIDao dao = sqlSession.getMapper(RentPensionIDao.class);
 		int no = Integer.parseInt(request.getParameter("no"));
 		model.addAttribute("dto", dao.selectVo(no));
+		
+		RentPension list = dao.selectVo(no);
+		
+		int minp = list.getMinp();
+		int maxp = list.getMaxp();
+		
+		model.addAttribute("minp", minp);
+		model.addAttribute("maxp", maxp);
+		
 		return "Main.jsp?center=Pension/PensionOptionSelect";
 	}
 	
 	@RequestMapping("/PensionReserveResult")
-	public String pensionReserveResult(Model model, HttpServletRequest request, HttpServletResponse response) throws SQLException, ParseException, IOException {
+	public String pensionReserveResult(Model model, HttpServletRequest request, HttpServletResponse response,HttpSession session) throws SQLException, ParseException, IOException {
 		RentPensionIDao dao = sqlSession.getMapper(RentPensionIDao.class);
 		RentReserveIDao dao2 = sqlSession.getMapper(RentReserveIDao.class);
 		response.setContentType("text/html; charset=UTF-8");
@@ -125,15 +129,11 @@ public class RentController {
 		int no = Integer.parseInt(request.getParameter("no"));
 		int dday = Integer.parseInt(request.getParameter("dday"));
 		String rday = request.getParameter("rday");
-
-		int wifi = Integer.parseInt(request.getParameter("wifi"));
-
 		int qty = Integer.parseInt(request.getParameter("qty"));
-		HttpSession session = request.getSession();
 		String memid = (String)session.getAttribute("id");
 		
 		if(rday.isEmpty() || rday.equals("")) {
-			out.println("<script>alert('��¥�� �Է����ּ���.'); location.href='Pension/PensionReserveInfo?no="+no+"';</script>");
+			out.println("<script>alert('날짜 정보를 입력해주세요.'); location.href='PensionReserveInfo?no="+no+"';</script>");
 			out.flush();
 			return null;
 		}
@@ -147,9 +147,7 @@ public class RentController {
 		dto2.setMemid(memid);
 		dto2.setNo(no);
 		dto2.setQty(qty);
-
 		dto2.setRday(rday);
-		dto2.setWifi(wifi);
 		
 		Date d1 = new Date();
 		Date d2 = new Date();
@@ -160,11 +158,11 @@ public class RentController {
 		
 		int res = d1.compareTo(d2);// -1,0,1
 		if(res == -1) {
-			out.println("<script>alert('���� ���� ��¥�� �����Ϸ� ����� �� �����ϴ�.'); location.href='PensionReserveInfo?no="+no+"';</script>");
+			out.println("<script>alert('날짜 정보를 알맞게 입력해주세요.'); location.href='PensionReserveInfo?no="+no+"';</script>");
 			out.flush();
 			return null;
 		}else if(memid==null || memid.equals("")) {
-			out.println("<script>alert('�α��� �� �̿����ּ���.'); location.href='Login';</script>");
+			out.println("<script>alert('로그인후 예약 가능합니다.'); location.href='Login';</script>");
 			out.flush();
 			return null;
 		}

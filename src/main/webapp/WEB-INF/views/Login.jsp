@@ -12,7 +12,6 @@
 				<tr height="100" bgcolor="lightgreen">
 					<td align="center" colspan="3"><font size="6" color="gray">로그인</font></td>
 				</tr>
-
 				<tr height="40">
 					<td width="120" align="center">아이디</td>
 					<td width="180"><input type="text" name="id">
@@ -23,10 +22,11 @@
 				</tr>
 				<tr height="40" align="center">
 					<td colspan="2"><input type="submit" value="로그인" class="btn btn-default">&nbsp;&nbsp;
-		</form>
 						<button type="button" onclick="location.href='MemberJoin'" class="btn btn-default">회원가입</button></td>
 				</tr>
 			</table>
+			</form>
+			
 	</center>
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="js/bootstrap.js"></script>

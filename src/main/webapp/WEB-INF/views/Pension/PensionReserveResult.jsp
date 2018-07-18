@@ -12,19 +12,19 @@
 	href="${pageContext.request.contextPath}/resources/css/bootstrap.css">
 <head>
 <%
-request.setCharacterEncoding("utf-8");
+request.setCharacterEncoding("UTF-8");
 RentReserve rbean = (RentReserve)request.getAttribute("dto2");
 RentPension rentpension = (RentPension)request.getAttribute("dto");
-
 	String id = (String) session.getAttribute("id");
-	if (id == null) {
-%>
+
+/*	if (id == null) {
 <script>
-	alert('로그인후 예약 가능합니다.');
+	alert("로그인후 예약 가능합니다.");
 	location.href = "Main.jsp?center=Login.jsp";
 </script>
-<%
 	}
+*/
+	
 	if(rbean.getQty()>rentpension.getMaxp()){
 		
 	}
@@ -41,9 +41,9 @@ RentPension rentpension = (RentPension)request.getAttribute("dto");
 		
 		if(rbean.getQty()>rentpension.getMinp()){
 		option += "숙박인원 추가요금:"+(10000*(rbean.getQty()-rentpension.getMinp()));
-		optionFee += (10000*(rbean.getQty()-rentpension.getMinp()));
+		optionFee += 10000*(rbean.getQty()-rentpension.getMinp());
 		}else{
-			option+="숙박인원 추가요금"+(0);
+			option+="숙박인원 추가요금:"+(0);
 		}
 
 
@@ -78,7 +78,7 @@ RentPension rentpension = (RentPension)request.getAttribute("dto");
 				<td colspan="3" align="center"><font size="5" color="gray">예약결과</font></td>
 			</tr>
 			<tr>
-				<td rowspan="7"><img alt="" src="img/<%=rentpension.getImg()%>" /></td>
+				<td rowspan="6"><img alt="" src="resource/img/<%=rentpension.getImg()%>" /></td>
 				<td width="30%">펜션 이름</td>
 				<td width="40%"><%=rentpension.getName()%></td>
 			</tr>
@@ -92,20 +92,17 @@ RentPension rentpension = (RentPension)request.getAttribute("dto");
 			</tr>
 			<tr>
 				<td width="30%">예약 인원</td>
-				<td width="40%"><%=rbean.getQty()%>대</td>
+				<td width="40%"><%=rbean.getQty()%>명</td>
 			</tr>
 			<tr>
 				<td width="30%">예약 금액</td>
 				<td width="40%"><%=rentalFee%>원</td>
 			</tr>
 			<tr>
-				<td width="30%">추가인원 금액</td>
-				<td width="40%"><%=optionFee%>원</td>
+				<td width="30%">추가 금액</td>
+				<td width="40%"><%=option%>원</td>
 			</tr>
-			<tr>
-				<td width="30%">추가인원 내역</td><!-- 수정必사항 -->
-				<td width="40%"><%=option%></td>
-			</tr>
+			
 			<tr bgcolor="lightgray">
 				<td colspan="3" align="center"><font size="4" color="gray">합계액:<%=optionFee + rentalFee%>원
 				</font></td>

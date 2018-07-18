@@ -14,7 +14,6 @@
 		<result column="MAXP" property="maxp" />
 		<result column="REGION" property="region" />
 		<result column="SPA" property="spa" />
-		<result column="FULL" property="full" />
 		<result column="POOL" property="pool" />
 		<result column="TOILET" property="toilet" />
 		<result column="ROOM" property="room" />
@@ -22,22 +21,22 @@
 	</resultMap>
 
 	<insert id="insert">
-		INSERT INTO RENT_PENSION(no, name, price, img, info, minp, maxp, region, spa, full, pool, toilet, room, breakfast,wifi)
-		VALUES(RENT_PENSION_SEQ.NEXTVAL, #{name},#{price}, #{img}, #{info},#{minp},#{maxp},#{region},#{spa},#{full},#{pool},#{toilet},#{room},#{breakfast},#{wifi})
+		INSERT INTO RENT_PENSION(no, name, price, img, info, minp, maxp, region, spa, pool, toilet, room, breakfast, wifi)
+		VALUES(RENT_PENSION_SEQ.NEXTVAL, #{name},#{price}, #{img}, #{info},#{minp},#{maxp},#{region},#{spa},#{pool},#{toilet},#{room},#{breakfast},#{wifi})
 	</insert>
 	
 	<select id="selectAll" resultMap="result">
-		SELECT no, name, price, img, info, minp, maxp, region, spa, full, pool, toilet, room, breakfast,wifi FROM RENT_PENSION
+		SELECT no, name, price, img, info, minp, maxp, region, spa, pool, toilet, room, breakfast,wifi FROM RENT_PENSION
 	</select>
 	
 	<select id="selectVo" resultType="com.lhs.pension.dto.RentPension">
-		SELECT no, name, price, img, info, minp, maxp, region, spa, full, pool, toilet, room, breakfast,wifi FROM RENT_PENSION
+		SELECT no, name, price, img, info, minp, maxp, region, spa, pool, toilet, room, breakfast,wifi FROM RENT_PENSION
 		WHERE NO = #{no}
 	</select>
 	
 
 	<select id="selectKey" resultMap="result">
-		SELECT no, name, price, img, info, minp, maxp, region, spa, full, pool, toilet, room, breakfast,wifi FROM RENT_PENSION
+		SELECT no, name, price, img, info, minp, maxp, region, spa, pool, toilet, room, breakfast,wifi FROM RENT_PENSION
 		WHERE REGION = #{region}
 	</select>
 
@@ -52,7 +51,6 @@
 		maxp = #{maxp},
 		region = #{region},
 		spa = #{spa},
-		full = #{full},
 		pool = #{pool},
 		toilet = #{toilet},
 		room = #{room},

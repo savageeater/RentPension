@@ -9,34 +9,33 @@
 <title>BatchForm.jsp</title>
 </head>
 <body>
-<!-- <script>
-	var pass = prompt('관리자비밀번호 넣어세요');
+<script>
+	var pass = prompt('관리자 비밀번호를 입력하세요.');
 	if(pass!='1234'){
 		history.go(-1);
 	}
 </script>
- -->
+
 <center>
 <form action="BatchProc" method="post">
 	<table width="800">
 		<tr align="center">
 		<td colspan="2">
 		<font size="5" color="gray">
-			[렌트카등록배치처리작업]
+			펜션 등록 화면
 		</font>
 		</td>
 		</tr>
 		<tr>
-		<td width="100"  bgcolor="lightgreen">입력정보배치방법</td>
+		<td width="100"  bgcolor="lightgreen">입력 정보</td>
 		<td>
-		차종/1소형,2중형,3대형/랜트료/사용인원/회사/이미지파일명/상세정보#
+		이름/가격/이미지/정보/숙박최소인원/최대인원/지역/스파여부/풀빌라여부/화장실갯수/방갯수/조식여부/와이파이여부#
 		</td>
 		</tr>
-		
 		<tr>
-		<td width="100"  bgcolor="lightgreen">입력샘플</td>
+		<td width="100"  bgcolor="lightgreen">입력 샘플</td>
 		<td>
-		SANTAFE/3/50000/5/현대/santafe.jpg/현대의 야심 브렌드#
+		홍천라임오렌지펜션/55000/hongla.jpg/할인중/2/4/2/0/0/3/3/1/1#
 		</td>
 		</tr>
 		<tr>

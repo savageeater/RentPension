@@ -10,19 +10,25 @@ public class RentPension {
 	private int maxp;
 	private int region;
 	private int spa;
-	private int full;
 	private int pool;
 	private int toilet;
-	@Override
-	public String toString() {
-		return "RentPension [no=" + no + ", name=" + name + ", price=" + price + ", img=" + img + ", info=" + info
-				+ ", minp=" + minp + ", maxp=" + maxp + ", region=" + region + ", spa=" + spa + ", full=" + full
-				+ ", pool=" + pool + ", toilet=" + toilet + ", room=" + room + ", breakfast=" + breakfast + ", wifi="
-				+ wifi + "]";
-	}
 	private int room;
 	private int breakfast;
 	private int wifi;
+
+	@Override
+	public String toString() {
+		return " 예약번호 : " + no + " 펜션 이름 : " + name + " 총 구매 가격 : " + price 
+				+"지역 : " + region + " 화장실 갯수 : " + toilet + "방 갯수 : " + room + " 기타 정보 : " + info + " ] ";
+	}
+
+	
+	public int getWifi() {
+		return wifi;
+	}
+	public void setWifi(int wifi) {
+		this.wifi = wifi;
+	}
 	public int getNo() {
 		return no;
 	}
@@ -76,12 +82,6 @@ public class RentPension {
 	}
 	public void setSpa(int spa) {
 		this.spa = spa;
-	}
-	public int getFull() {
-		return full;
-	}
-	public void setFull(int full) {
-		this.full = full;
 	}
 	public int getPool() {
 		return pool;

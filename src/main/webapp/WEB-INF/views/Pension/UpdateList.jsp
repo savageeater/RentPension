@@ -55,12 +55,17 @@
 <table border="1">
 	<tr>
 		<td align="center">번호</td>
-		<td align="center">차량이미지</td>
+		<td align="center">펜션 이미지</td>
 		<td align="center">이름</td>
-		<td align="center">카테고리</td>
+		<td align="center">지역</td>
+		<td align="center">풀빌라</td>
+		<td align="center">최소인원</td>
+		<td align="center">최대인원</td>
+		<td align="center">조식</td>
+		<td align="center">화장실 갯수</td>
+		<td align="center">방 갯수</td>
+		<td align="center">스파</td>
 		<td align="center">가격</td>
-		<td align="center">탑승인원</td>
-		<td align="center">제조회사</td>
 		<td align="center">설명</td>
 		<td align="center">수정</td>
 	</tr>
@@ -71,9 +76,15 @@
 				<tr height="50">
 					<td width="100" align="center"><%=dto.getNo()%></td>
 					<td width="150" align="center"><img alt="" src="resources/img/<%=dto.getImg()%>" width="200" height="80"></td>
-					<td width="200" align="center"><%=dto.getName()%></td>	
-					<td width="100" align="center">
-					</td>
+					<td width="100" align="center"><%=dto.getName()%></td>	
+					<td width="100" align="center"><%=dto.getRegion() %></td>
+					<td width="100" align="center"><%=dto.getPool() %></td>
+					<td width="100" align="center"><%=dto.getMinp() %></td>
+					<td width="100" align="center"><%=dto.getMaxp() %></td>
+					<td width="100" align="center"><%=dto.getBreakfast() %></td>
+					<td width="100" align="center"><%=dto.getToilet() %></td>
+					<td width="100" align="center"><%=dto.getRoom() %></td>
+					<td width="100" align="center"><%=dto.getSpa() %></td>
 					<td width="250" align="center"><%=dto.getPrice()%>원</td>
 					<td width="250" align="center"><%=dto.getInfo()%></td>
 					<td width="70" align="center"><button onclick="location.href='UpdateCarInfo?No=<%=dto.getNo()%>'" class="btn btn-default">수정</button></td>

@@ -15,13 +15,12 @@
 	</delete>
 
 	<update id="update">
-		UPDATE P_MEMBER SET EMAIL=#{email}, TEL=#{tel},
-		HOBBY=#{region} WHERE ID = #{id}
+		UPDATE P_MEMBER SET EMAIL=#{email}, TEL=#{tel}, REGION=#{region} WHERE ID = #{id}
 	</update>
 
 	<select id="select"
 		resultType="com.lhs.pension.dto.PMember">
-		SELECT id, pass, email, tel, age, region,
+		SELECT id, pass, email, tel, age, region
 		 FROM P_MEMBER
 		WHERE ID = #{id}
 	</select>

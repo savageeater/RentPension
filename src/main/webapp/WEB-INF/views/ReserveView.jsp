@@ -37,16 +37,16 @@
 	%>
 
 	<center>
-		<font size="6" color="gray"><%=memid%>님 예약리스트(<%=list.size()%>건)</font>
+		<font size="6" color="gray"><%=memid%>님의 예약리스트(<%=list.size()%>건)</font>
 		<table width="85%">
 			<tr align="center" bgcolor="lightgreen">
 				<td>예약번호</td>
 				<td>펜션</td>
 				<td>펜션명</td>
 				<td>예약일</td>
-				<td>대여일수</td>
-				<td>대여수량</td>
-				<td>대여금액내역</td>
+				<td>예약일수</td>
+				<td>예약인원</td>
+				<td>예약금액내역</td>
 				<td>수정</td>
 				<td>예약취소</td>
 			</tr>

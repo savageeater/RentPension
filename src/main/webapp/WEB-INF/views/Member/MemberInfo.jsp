@@ -19,6 +19,7 @@
 		String id = request.getParameter("id");
 		PMember dto = null;
 		dto = (PMember) request.getAttribute("dto");
+
 	%>
 	<center>
 		<h1>회원정보상세보기</h1>

@@ -74,7 +74,7 @@ public class MemberController {
 			session.setAttribute("pass", pass);
 			return "redirect:Main";
 		}else {	 
-			out.println("<script>alert('���̵� ��й�ȣ�� Ʋ���ϴ�.'); location.href='Login';</script>");
+			out.println("<script>alert('아이디와 비밀번호가 일치하지 않습니다.'); location.href='Login';</script>");
 			out.flush();
 			return null;
 		}
@@ -101,18 +101,23 @@ public class MemberController {
 	@RequestMapping("/MemberInfo")
 	public String memberInfo(Model model, HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
 		PMemberIDao dao = sqlSession.getMapper(PMemberIDao.class);
-		response.setContentType("text/html; charset=UTF-8");	 
+		response.setContentType("text/html; charset=UTF-8");
+		request.setCharacterEncoding("UTF-8");
 		PrintWriter out = response.getWriter(); 
-		String key = request.getParameter("id");
-		if(key.equals("GUEST")) {
-			out.println("<script>alert('�α��� �� �̿� �����մϴ�.'); location.href='Login';</script>");
+		session = request.getSession();
+	String id = (String)session.getAttribute("id");
+	System.out.println(id);
+	
+		if(id==null) {
+			out.println("<script>alert('로그인 후 이용 가능합니다.'); location.href='Login';</script>");
 			out.flush();
-			return null;
+			return "Main";
 		}
-		model.addAttribute("dto", dao.select(key));
+		
+		
+		model.addAttribute("dto", dao.select(id));
 		return "Main.jsp?center=Member/MemberInfo";
 	}
-	
 	@RequestMapping("/MemberDeleteForm")
 	public String memberDeleteForm(Model model, HttpServletRequest request) throws SQLException {
 		PMemberIDao dao = sqlSession.getMapper(PMemberIDao.class);
@@ -134,11 +139,9 @@ public class MemberController {
 		
 		if(dto.getPass().equals(xpwd)) {
 			dao.delete(id);
-			System.out.println("�����Ϸ�");
-			
 			return "redirect:Logout";
 		}else {
-			out.println("<script>alert('��ȣ�� Ʋ���ϴ�.'); location.href='Member/MemberDeleteForm?id="+id+"';</script>");
+			out.println("<script>alert('비밀번호가 맞지 않습니다.'); location.href='Member/MemberDeleteForm?id="+id+"';</script>");
 			out.flush();
 			return null;
 		}
@@ -171,10 +174,9 @@ public class MemberController {
 		dto.setId(id);
 		if(dto.getPass().equals(pass)) {
 			dao.update(dto);
-			System.out.println("�����Ϸ�");
 			return "redirect:Member/MemberInfo?id="+id;
 		}else {
-			out.println("<script>alert('��ȣ�� Ʋ���ϴ�.'); location.href='Member/MemberUpdateForm?id="+id+"';</script>");
+			out.println("<script>alert('비밀번호가 맞지 않습니다.'); location.href='Member/MemberUpdateForm?id="+id+"';</script>");
 			out.flush();
 			return null;
 		}

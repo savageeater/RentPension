@@ -6,24 +6,33 @@ public class RentPensionParsing {
 	public static RentPension parsing(String target) throws Exception{
 		//"0/SONATA/3/50000/4/����/sonata.jpg/����������"
 		String[] tokens = target.split("/");
-		RentPension car = new RentPension();
+		RentPension pension = new RentPension();
 		String errormsg="";
 		try {
-			car.setNo(0);
-			car.setName(tokens[0]);
-			errormsg="ī�װ���ȣ�� 1,2,3�̾�� �Ѵ�.";
+			
+			//pension.setNo(0);
+			pension.setName(tokens[0]);
+			pension.setPrice(Integer.parseInt(tokens[1]));
+			pension.setImg(tokens[2]);
+			pension.setInfo(tokens[3]);
+			pension.setMinp(Integer.parseInt(tokens[4]));
+			pension.setMaxp(Integer.parseInt(tokens[5]));
+			pension.setRegion(Integer.parseInt(tokens[6]));
+			pension.setSpa(Integer.parseInt(tokens[7]));
+			pension.setPool(Integer.parseInt(tokens[8]));
+			pension.setToilet(Integer.parseInt(tokens[9]));
+			pension.setRoom(Integer.parseInt(tokens[10]));
+			pension.setBreakfast(Integer.parseInt(tokens[11]));
+			pension.setWifi(Integer.parseInt(tokens[12]));
+			errormsg="에러메세지-";
+			
 
-			errormsg="�����뿩�� �κ� �����̾�� �մϴ�.";
-			car.setPrice(Integer.parseInt(tokens[2]));
-			errormsg="ž���ڼ� �κ� �����̾�� �մϴ�.";
-
-			car.setImg(tokens[5]);
-			car.setInfo(tokens[6]);
+			
 		} catch (Exception e) {
 			System.err.println(errormsg);
 			e.printStackTrace();
 		}
-		return car;
+		return pension;
 	}
 
 	public static void main(String[] args) throws Exception {

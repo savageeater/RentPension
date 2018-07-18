@@ -22,17 +22,17 @@
 		<form action="AdjustProc" method="post">
 			<table width="500">
 				<tr height="100">
-					<td align="center" colspan="3"><font size="6" color="gray">[<%=dto.getMemid()%>님<%=dto.getRegno()%>번 예약수정]</font></td>
+					<td align="center" colspan="3"><font size="6" color="gray">[<%=dto.getMemid()%>님의 예약 번호<%=dto.getRegno()%>번 예약수정]</font></td>
 				</tr>
 				<tr>
 					<td colspan="3">
-						<img src="resources/img/<%=img%>" width="300" height="150"/>
+						<img src="resources/img/<%=img%>" width="500" height="250"/>
 					</td>
 				</tr>
 				<tr bgcolor="lightgray">
 					<td width="133" align="center">항목</td>
-					<td width="133" align="center">당초</td>
-					<td width="134" align="center">수정</td>
+					<td width="133" align="center">예약 사항</td>
+					<td width="134" align="center">수정 사항</td>
 				</tr>
 				<tr>
 					<td align="center">예약일</td>
@@ -41,7 +41,7 @@
 				</tr>
 								
 				<tr>
-					<td align="center">대여기간</td>
+					<td align="center">예약 기간</td>
 					<td><%=dto.getDday()%></td>
 					<td align="left" width="40"><select name="dday">
 							<option value="1">1일</option>
@@ -55,26 +55,20 @@
 				</tr>
 				
 				<tr>
-					<td align="center">대여수량</td>
+					<td align="center">예약인원</td>
 					<td><%=dto.getQty()%></td>
 					<td align="left" width="40"><select name="qty">
-							<option value="1">1대</option>
-							<option value="2">2대</option>
-							<option value="3">3대</option>
+							<option value="1">1명</option>
+							<option value="2">2명</option>
+							<option value="3">3명</option>
+							<option value="4">4명</option>
+							<option value="5">5명</option>
+							<option value="6">6명</option>
+							<option value="7">7명</option>
+							<option value="8">8명</option>
+							<option value="9">9명 이상</option>
 					</select></td>
 				</tr>
-				
-
-				<tr>
-					<td align="center">WiFi적용</td>
-					<td><%=dto.getWifi()%></td>
-					<td align="left"><select name="wifi" width="40">
-							<option value="1">적용(1일1만원)</option>
-							<option value="0">비적용</option>
-					</select></td>
-				</tr>
-
-
 
 				<tr>
 

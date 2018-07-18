@@ -39,7 +39,7 @@ public class PensionController {
 			if(x==null) continue;
 			dao.insert(RentPensionParsing.parsing(x));
 		}
-		out.println("<script>alert('�����ϵǾ����ϴ�.'); location.href='Main';</script>");
+		out.println("<script>alert('등록에 성공했습니다.'); location.href='Main';</script>");
 		out.flush();
 		return "Main";
 	}

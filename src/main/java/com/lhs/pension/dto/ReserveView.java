@@ -10,7 +10,14 @@ public class ReserveView {
 	private String memid;
 	private String breakfast;
 	private int regno;
+	private int minp;
 	
+	public int getMinp() {
+		return minp;
+	}
+	public void setMinp(int minp) {
+		this.minp = minp;
+	}
 	public String getImg() {
 		return img;
 	}
@@ -68,10 +75,13 @@ public class ReserveView {
 
 	// 요금정보
 	public String getFeeInfo() {
+		
 		String feeString = "";
+		int fee =0;
 		int a, b;
-		feeString += "차량대여료:" + (a = getPrice()*qty*dday);
-		feeString += "  [ 총계: " + (a )+" ]";
+		feeString += "펜션 예약금:" + (a = getPrice()*dday);
+		fee =(a+(qty-minp)*10000);
+		feeString += " [ 총계: " + (fee)+" ]";
 		return feeString;
 	}
 
@@ -86,7 +96,7 @@ public class ReserveView {
 			trBuffer.append("</td>");
 			
 			trBuffer.append("<td height='50' width='10%'>");
-			trBuffer.append("<img width='150' height='70' alt='' src='img/" + getImg() + "' >");
+			trBuffer.append("<img width='150' height='70' alt='' src='resource/img/" + getImg() + "' >");
 			trBuffer.append("</td>");
 			//
 			trBuffer.append("<td height='50' width='3%'>");

@@ -13,8 +13,17 @@
 	int no =Integer.parseInt(request.getParameter("no"));
 	int qty = Integer.parseInt(request.getParameter("qty"));
 	String img = request.getParameter("img");
-	
 	RentPension dto = (RentPension)request.getAttribute("dto");
+	int minp = (Integer)request.getAttribute("minp");
+	int maxp = (Integer)request.getAttribute("maxp");
+
+	if (qty>maxp||qty<minp){
+	%><script>
+		alert("인원이 맞지 않습니다.");
+		history.go(-1);
+	</script>
+	<%
+	}
 	
 %>
 </head>
@@ -27,7 +36,6 @@
 				</tr>
 				<tr>
 					<td rowspan="7" width="50%" align="center"><image alt="" src="resources/img/<%=img%>" width="450"></image></td>
-
 					<td width="25%" align="center">예약 기간</td>
 					<td width="25%" align="left" width="40"><select name="dday">
 							<option value="1">1일</option>
@@ -53,7 +61,7 @@
 			</table>
 		</form>
 		<p>
-			<font size="5" color="gray">펜션정보보기</font>
+			<font size="6" color="gray">펜션 정보</font>
 		<p>
 			<%=dto.getInfo()%>
 	</center>

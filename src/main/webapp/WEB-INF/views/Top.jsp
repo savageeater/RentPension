@@ -49,11 +49,20 @@
 					
 			<td align="center" width="20%" bgcolor="#355C7D"><a
 				href="ReserveView" style="text-decoration: none"><font
-					color="white" size="4">빈 방 검색</font></a></td>
+					color="white" size="4">예약 정보</font></a></td>
 					
 			<td align="center" width="20%" bgcolor="#355C7D"><a
 				href="BoardList" style="text-decoration: none"><font
-					color="white" size="4">옵션 검색</font></a></td>
+					color="white" size="4">게시판</font></a></td>	
+									
+			<td align="center" width="20%" bgcolor="#355C7D"><a
+				href="MemberInfo" style="text-decoration: none"><font
+					color="white" size="4">회원정보</font></a></td>
+			
+			<td align="center" width="20%" bgcolor="#355C7D"><a
+				href="BatchForm" style="text-decoration: none"><font
+					color="white" size="4">펜션 등록</font></a></td>
+					
 					
 			<%
 				if (id.equals("admin")) {

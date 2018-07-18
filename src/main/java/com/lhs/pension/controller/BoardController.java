@@ -69,7 +69,7 @@ public class BoardController {
 		PBoardIDao dao = sqlSession.getMapper(PBoardIDao.class);
 		
 		if(writer.equals("")||subject.equals("")||email.equals("")||password.equals("")||content.equals("")) {
-			out.println("<script>alert('텍스트필드를 모두 채워주세요.'); location.href='BoardWriteForm';</script>");
+			out.println("<script>alert('텍스트 필드를 모두 채워주세요.'); location.href='BoardWriteForm';</script>");
 			out.flush();
 			return null;
 		}

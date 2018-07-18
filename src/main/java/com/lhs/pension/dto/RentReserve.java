@@ -10,6 +10,11 @@ public class RentReserve {
 	private String memid;
 	private int breakfast;
 	
+	
+	@Override
+	public String toString() {
+		return "예약정보 :" + "예약 인원 : " + qty + " 예약 기간 : " + dday + " 예약 일자 : " + rday + " 예약 ID : " + memid;
+	}
 	public int getRegno() {
 		return regno;
 	}
