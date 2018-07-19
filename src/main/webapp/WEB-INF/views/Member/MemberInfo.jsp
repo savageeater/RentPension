@@ -44,7 +44,7 @@
 			</tr>
 			
 
-			<tr height="50" bgcolor="lightgreen">
+			<tr height="50" bgcolor="#a6c6f5">
 				<td colspan="2" align="center">
 					<button
 						onclick="location.href='MemberUpdateForm?id=<%=dto.getId()%>'"

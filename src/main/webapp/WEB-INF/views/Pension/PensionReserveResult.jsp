@@ -74,7 +74,7 @@ RentPension rentpension = (RentPension)request.getAttribute("dto");
 <body>
 	<center>
 		<table width=70%>
-			<tr bgcolor="lightgreen">
+			<tr bgcolor="#a6c6f5">
 				<td colspan="3" align="center"><font size="5" color="gray">예약결과</font></td>
 			</tr>
 			<tr>

@@ -31,7 +31,7 @@
 					<td><input type="password" name="pass" size="40"></td>
 				</tr>
 				<input type="hidden" name="id" value="<%=dto.getId()%>"></td>
-				<tr height="50" bgcolor="lightgreen" align="center">
+				<tr height="50" bgcolor="#a6c6f5" align="center">
 					<td colspan="2">
 						<input type="submit" value="탈퇴하기" class="btn btn-default"></form>
 						<button onclick="location.href='MemberInfo?id=<%=dto.getId() %>'" class="btn btn-default">취소하기</button>

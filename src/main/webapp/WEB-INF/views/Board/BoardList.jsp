@@ -73,7 +73,7 @@
 					<button onclick="location.href='BoardWriteForm'" class="btn btn-default">글쓰기</button>
 				</td>
 			</tr>
-			<tr style="font-size: 80%;" align="center" bgcolor="lightgreen">
+			<tr style="font-size: 80%;" align="center" bgcolor="#a6c6f5">
 				<td width="50" style="color: blue;">번호</td>
 				<td width="350" style="color: blue;">제목</td>
 				<td width="100" style="color: blue;">작성자</td>
@@ -113,7 +113,7 @@
 					}
 				%>
 			</tr>
-			<tr height="2" bgcolor="lightgreen">
+			<tr height="2" bgcolor="#a6c6f5">
 				<td colspan="5"></td>
 			</tr>
 		</table>

@@ -9,8 +9,8 @@
 	<center>
 		<form action="LoginProc" method="post">
 			<table width="300">
-				<tr height="100" bgcolor="lightgreen">
-					<td align="center" colspan="3"><font size="6" color="gray">로그인</font></td>
+				<tr height="100" bgcolor="#a6c6f5">
+					<td align="center" colspan="3"><font size="6" color="white">로그인</font></td>
 				</tr>
 				<tr height="40">
 					<td width="120" align="center">아이디</td>

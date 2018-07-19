@@ -30,28 +30,28 @@
 		<form action="BoardReWriteProc" method="post">
 			<table width="600">
 				<tr height="40">
-					<td width="150" align="center" size="60" bgcolor="lightgreen">작성자</td>
+					<td width="150" align="center" size="60" bgcolor="#a6c6f5">작성자</td>
 					<td width="450"><input type="text" name="writer" size="60"></td>
 
 				</tr>
 				<tr height="40">
-					<td width="150" align="center" size="60" bgcolor="lightgreen">제목</td>
+					<td width="150" align="center" size="60" bgcolor="#a6c6f5">제목</td>
 					<td width="450"><input type="text" name="subject" value="[답변]"
 						size="60"></td>
 				</tr>
 
 				<tr height="40">
-					<td width="150" align="center" size="60" bgcolor="lightgreen">이메일</td>
+					<td width="150" align="center" size="60" bgcolor="#a6c6f5">이메일</td>
 					<td width="450"><input type="text" name="email" size="60"></td>
 				</tr>
 
 				<tr height="40">
-					<td width="150" align="center" size="60" bgcolor="lightgreen">비밀번호</td>
+					<td width="150" align="center" size="60" bgcolor="#a6c6f5">비밀번호</td>
 					<td width="450"><input type="password" name="password"
 						size="60"></td>
 				</tr>
 				<tr height="40">
-					<td width="150" align="center" size="60" bgcolor="lightgreen">글내용</td>
+					<td width="150" align="center" size="60" bgcolor="#a6c6f5">글내용</td>
 					<td width="450"><textarea name="content" rows=10 cols="60"></textarea></td>
 				</tr>
 				<tr height="40">

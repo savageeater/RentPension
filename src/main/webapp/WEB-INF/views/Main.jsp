@@ -26,7 +26,7 @@
 		</td>
 	</tr>
 	<tr height="2">
-	<td bgcolor="lightgreen"></td>
+	<td bgcolor="#a6c6f5"></td>
 	</tr>
 	<tr height="110" align="center">
 		<td align="center"><jsp:include page="Bottom.jsp"/>

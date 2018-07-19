@@ -17,9 +17,9 @@
 	<%
 		List<RentPension> list = null;
 		
-		//int nums = (int)request.getAttribute("allcount");
+		int nums = (int)request.getAttribute("allcount");
 		list = (List<RentPension>)request.getAttribute("list");
-		//list = list.subList(nums-3, nums);
+		list = list.subList(nums-3, nums);
 	%>
 	<table width="1000">
 		<tr>

@@ -39,7 +39,7 @@
 	<center>
 		<font size="6" color="gray"><%=memid%>님의 예약리스트(<%=list.size()%>건)</font>
 		<table width="85%">
-			<tr align="center" bgcolor="lightgreen">
+			<tr align="center" bgcolor="#a6c6f5">
 				<td>예약번호</td>
 				<td>펜션</td>
 				<td>펜션명</td>

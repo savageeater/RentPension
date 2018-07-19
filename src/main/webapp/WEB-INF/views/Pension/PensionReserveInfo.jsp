@@ -5,8 +5,8 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/css/bootstrap.css">
+<link rel="stylesheet" href="resources/css/bootstrap.css">
+
 <body>
 	<%
 		int carNo = Integer.parseInt(request.getParameter("no"));
@@ -90,7 +90,7 @@
 		if(dto.getPool()==1){
 			pool="풀빌라";
 		}else{
-			pool="풀빌라 아님";
+			pool="풀 없음";
 		}
 		
 		
@@ -138,7 +138,6 @@
 					<td width="25%" align="center">예약 가능인원</td>
 					<td width="25%" align="center"><%=dto.getMinp()%>명~<%=dto.getMaxp()%>명</td>
 				</tr>
-
 				<tr>
 					<td width="25%" align="center">조식</td>
 					<td width="25%" align="center"><%=breakfast%></td>
@@ -146,38 +145,34 @@
 				<tr>
 					<input type="hidden" name="no" value="<%=dto.getNo()%>">
 					<input type="hidden" name="img" value="<%=dto.getImg()%>">
-					<td colspan="3" width="50%" align="center"><input
-						type="submit" value="옵션선택후구매하기" class="btn btn-default"></td>
 				</tr>
-
 			</table>
+					<div style="padding-top: 80px; padding-bottom: 50px;" align="center">
+					<font size="5"> <input type="submit" value="옵션 예약하기" class="btn btn-default"></font>
+				</div>
 		</form>
-<div>
-		<table>
 		
-				<tr >
-					<td align="center" colspan="4"><font size="6" color="gray">펜션 정보</font></td>
+				<div style="padding-top: 80px; padding-bottom: 50px;" align="center">
+					<font size="7" color="gray">펜션 정보</font>
+				</div>
+			<table width="24%" align="center">
+				<tr>
+					<td width="6%" align="center"><font size="4" color="gray">방 갯수</font></td>
+					<td width="6%" align="center"><font size="4" color="gray">화장실 갯수</font></td>
+					<td width="6%" align="center"><font size="4" color="gray">스파</font></td>
+					<td width="6%" align="center"><font size="4" color="gray">풀빌라</font></td>
 				</tr>
 				<tr>
-					<td width="10%" align="center">화장실 갯수</td>
-					<td width="10%" align="center"><%=dto.getToilet()%>개</td>
-					<td width="10%" align="center">방 갯수</td>
-					<td width="10%" align="center"><%=dto.getRoom()%>개</td>
+					<td width="6%" align="center"><font size="4" color="gray"><%=dto.getRoom()%>개</font></td>
+					<td width="6%" align="center"><font size="4" color="gray"><%=dto.getToilet()%>개</font></td>
+					<td width="6%" align="center"><font size="4" color="gray"><%=spa%></font></td>
+					<td width="6%" align="center"><font size="4" color="gray"><%=pool%></font></td>
 				</tr>
+			</table>
+				<div style="margin-top: 80px;" align="center">
+					<font size="4" color="gray"><%=dto.getInfo()%></font>
+				</div>
 
-				<tr>
-					<td width="10%" align="center">스파</td>
-					<td width="10%" align="center"><%=spa%></td>
-					
-					<td width="10%" align="center">풀빌라</td>
-					<td width="10%" align="center"><%=pool%></td>
-				</tr>
-
-				<tr>
-					<td align="center" colspan="4"><%=dto.getInfo()%></td>
-				</tr>
-		</table>
-</div>
 	</center>
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

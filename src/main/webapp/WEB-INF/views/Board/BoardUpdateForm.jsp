@@ -34,29 +34,29 @@
 		<form action="BoardUpdateProc" method="post">
 			<table width="600">
 				<tr height="40">
-					<td width="120" align="center" bgcolor="lightGreen">작성자</td>
+					<td width="120" align="center" bgcolor="#a6c6f5">작성자</td>
 					<td width="180" align="center"><%=dto.getWriter()%></td>
-					<td width="120" align="center" bgcolor="lightGreen">작성일</td>
+					<td width="120" align="center" bgcolor="#a6c6f5">작성일</td>
 					<td width="180" align="center"><%=dto.getReg_date()%></td>
 				</tr>
 
 				<tr height="40">
-					<td width="120" align="center" bgcolor="lightGreen">제목</td>
+					<td width="120" align="center" bgcolor="#a6c6f5">제목</td>
 					<td width="480" colspan="3">&nbsp; <input type="text"
 						name="subject" value="<%=dto.getSubject()%>" size="60"></td>
 				</tr>
 				<tr height="40">
-					<td width="120" align="center" bgcolor="lightGreen">패스워드</td>
+					<td width="120" align="center" bgcolor="#a6c6f5">패스워드</td>
 					<td width="480" colspan="3">&nbsp; <input type="password"
 						name="password" size="60"></td>
 				</tr>
 				<tr height="40" align="center">
-					<td width="120" align="center" bgcolor="lightGreen">글내용</td>
+					<td width="120" align="center" bgcolor="#a6c6f5">글내용</td>
 					<td width="480" colspan="3"><textarea rows="10" cols="70"
 							name="content" align="left"><%=dto.getContent()%></textarea></td>
 				</tr>
 				<tr height="40" align="center">
-					<td width="120" align="center" bgcolor="lightGreen">점수</td>
+					<td width="120" align="center" bgcolor="#a6c6f5">점수</td>
 					<td width="50" colspan="3">	
 					<select name="score">
 							<option value="1">★</option>
