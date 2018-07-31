@@ -105,9 +105,8 @@ public class MemberController {
 		request.setCharacterEncoding("UTF-8");
 		PrintWriter out = response.getWriter(); 
 		session = request.getSession();
+		
 	String id = (String)session.getAttribute("id");
-	System.out.println(id);
-	
 		if(id==null) {
 			out.println("<script>alert('로그인 후 이용 가능합니다.'); location.href='Login';</script>");
 			out.flush();

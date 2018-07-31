@@ -22,6 +22,7 @@
 		int ref = dto.getRef();//부모글그룹
 		int re_step = dto.getRe_step();// 부모글보다 1증가
 		int re_level = dto.getRe_level();// 
+		String id = (String) session.getAttribute("id");
 
 		//out.print("넘어온값:ref/re_step/re_level:"+ref+"/"+re_step+"/"+re_level);
 	%>
@@ -31,7 +32,7 @@
 			<table width="600">
 				<tr height="40">
 					<td width="150" align="center" size="60" bgcolor="#a6c6f5">작성자</td>
-					<td width="450"><input type="text" name="writer" size="60"></td>
+					<td width="450"><%=id %></td>
 
 				</tr>
 				<tr height="40">

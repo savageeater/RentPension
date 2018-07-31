@@ -6,6 +6,15 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+<head>
+<style>
+.page{
+	padding-left:50%;
+	font-weight:bold;
+	font-size:18pt
+}
+</style>
+</head>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/bootstrap.css">
 <body>
@@ -68,7 +77,7 @@
 				%>
 
 				<td width="33%" align="center"><a
-					href="CarReserveInfo?no=<%=dto.getNo()%>&fromPage=CarAllList">
+					href="PensionReserveInfo?no=<%=dto.getNo()%>&fromPage=PensionAllList">
 						<img alt="" src="resources/img/<%=dto.getImg()%>" width="300" height="200">
 				</a>
 					<p>
@@ -80,12 +89,16 @@
 				%>
 			
 		</table>
-		<p>
-		<%
-			out.write(pm.getPagenation("CarAllList"));
-		%>
-	</center>
+		
 
+	</center>
+		<div class="page">
+		<h1>
+		<%
+			out.write(pm.getPagenation("PensionAllList"));
+		%>
+		</h1>
+		</div>
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="js/bootstrap.js"></script>
 </body>

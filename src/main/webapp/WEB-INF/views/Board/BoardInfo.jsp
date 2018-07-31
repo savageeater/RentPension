@@ -15,6 +15,7 @@
 	<%
 		int num = Integer.parseInt(request.getParameter("num"));
 		String root = (String) session.getAttribute("root");
+		String id = (String) session.getAttribute("id");
 		PBoard dto = null;
 		dto = (PBoard)request.getAttribute("dto");
 	%>
@@ -37,9 +38,20 @@
 				<td align="center" width="120" bgcolor="skyblue">제목</td>
 				<td align="center" colspan="3"><%=dto.getSubject()%></td>
 			</tr>
+			
+			<tr height="40">
+				<td align="center" width="120" bgcolor="skyblue">펜션명</td>
+				<td align="center" colspan="3">
+
+
+
+</td>
+			</tr>
+			
 			<tr height="40">
 				<td align="center" width="120" bgcolor="skyblue">별점</td>
 				<td align="center" colspan="3"><%
+				if(dto.getScore()!=null)
 				switch(dto.getScore()){
 				case "1":
 					%>★<%
@@ -55,7 +67,7 @@
 					break;					
 				case "5":
 					%>★★★★★<%
-					break;					
+					break;	
 				}
 				%></td>
 			</tr>	

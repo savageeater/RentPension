@@ -33,12 +33,32 @@ public class PensionController {
 		response.setContentType("text/html; charset=UTF-8");	 
 		PrintWriter out = response.getWriter(); 
 		RentPensionIDao dao = sqlSession.getMapper(RentPensionIDao.class);
+		RentPension dto = new RentPension();
+		
+		dto.setName(request.getParameter("name"));
+		dto.setPrice(Integer.parseInt(request.getParameter("price")));
+		dto.setImg(request.getParameter("img"));
+		dto.setInfo(request.getParameter("info"));
+		dto.setMinp(Integer.parseInt(request.getParameter("minp")));
+		dto.setMaxp(Integer.parseInt(request.getParameter("maxp")));
+		dto.setRegion(Integer.parseInt(request.getParameter("region")));
+		dto.setSpa(Integer.parseInt(request.getParameter("spa")));
+		dto.setPool(Integer.parseInt(request.getParameter("pool")));
+		dto.setToilet(Integer.parseInt(request.getParameter("toilet")));
+		dto.setRoom(Integer.parseInt(request.getParameter("room")));
+		dto.setBreakfast(Integer.parseInt(request.getParameter("breakfast")));
+		dto.setWifi(Integer.parseInt(request.getParameter("wifi")));
+		
+		dao.insert(dto);
+		/*
 		String content = request.getParameter("content");
 		String[] contents = content.split("#");
 		for(String x : contents) {
 			if(x==null) continue;
 			dao.insert(RentPensionParsing.parsing(x));
 		}
+		*/
+		
 		out.println("<script>alert('등록에 성공했습니다.'); location.href='Main';</script>");
 		out.flush();
 		return "Main";

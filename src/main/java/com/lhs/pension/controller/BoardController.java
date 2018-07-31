@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.lhs.pension.dao.PBoardIDao;
 import com.lhs.pension.dto.PBoard;
+import com.lhs.pension.dto.ReserveView;
 
 /**
  * Servlet implementation class BoardFrontController
@@ -36,17 +38,32 @@ public class BoardController {
 
 	
 	@RequestMapping("/BoardList")
-	public String list(Model model, HttpServletRequest request) throws SQLException {
+	public String list(Model model, HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
 		System.out.println("BoardList()");
 		PBoardIDao dao = sqlSession.getMapper(PBoardIDao.class);
 		int num = dao.getAllCount();
 		model.addAttribute("BoardList", dao.selectAll());
 		model.addAttribute("num", num);
+		
+		response.setContentType("text/html; charset=UTF-8");
+		request.setCharacterEncoding("UTF-8");
+		PrintWriter out = response.getWriter(); 
+		HttpSession session;
+		session = request.getSession();
+		String id = (String)session.getAttribute("id");
+		if(id==null) {
+			out.println("<script>alert('로그인 후 이용 가능합니다.'); location.href='Login';</script>");
+			out.flush();
+		}
+		
+		
 		return "Main.jsp?center=Board/BoardList";
 	}
 	
 	@RequestMapping("/BoardWriteForm")
-	public String writeForm(Model model, HttpServletRequest request) { // 게시글 작성 폼으로 이동
+	public String writeForm(Model model, HttpServletRequest request, HttpServletResponse response) throws IOException { // 게시글 작성 폼으로 이동
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
 		return "Main.jsp?center=Board/BoardWriteForm";
 	}
 	
@@ -58,8 +75,9 @@ public class BoardController {
 		PrintWriter out = response.getWriter(); 
 
 		model.addAttribute("request", request);
-
-		String writer = request.getParameter("writer");
+		HttpSession session = request.getSession();
+		String writer = (String) session.getAttribute("id");
+		
 		String subject = request.getParameter("subject");
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
@@ -69,7 +87,7 @@ public class BoardController {
 		PBoardIDao dao = sqlSession.getMapper(PBoardIDao.class);
 		
 		if(writer.equals("")||subject.equals("")||email.equals("")||password.equals("")||content.equals("")) {
-			out.println("<script>alert('텍스트 필드를 모두 채워주세요.'); location.href='BoardWriteForm';</script>");
+			out.println("<script>alert('입력 칸을 모두 채워주세요.'); location.href='BoardWriteForm';</script>");
 			out.flush();
 			return null;
 		}
@@ -151,17 +169,20 @@ public class BoardController {
 	
 	@RequestMapping("/BoardReWriteProc")
 	public String boardReWriteProc(Model model, HttpServletRequest request, HttpServletResponse response) throws SQLException {
+		
 		PBoardIDao dao = sqlSession.getMapper(PBoardIDao.class);
+		HttpSession session = request.getSession();
 		String ref = request.getParameter("ref");
 		String re_step = request.getParameter("re_step");
 		String re_level = request.getParameter("re_level");
-		String writer = request.getParameter("writer");
+		
+		String writer = (String) session.getAttribute("id");
 		String subject = request.getParameter("subject");
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 		String content = request.getParameter("content");
 		
-		HttpSession session = request.getSession();
+		
 		int backPage = Integer.parseInt(session.getAttribute("currentPage")+"");
 		int backBlock = Integer.parseInt(session.getAttribute("currentBlock")+"");
 		
@@ -169,7 +190,8 @@ public class BoardController {
 		
 		dao.insert_reply(writer, email, subject, password, Integer.parseInt(ref), Integer.parseInt(re_step)+1, Integer.parseInt(re_level)+1, content);
 	
-		return "redirect:Board/BoardList?pageNum="+backPage+"&pageBlock="+backBlock;
+		return "redirect:Board/BoardList";
+		//?pageNum="+backPage+"&pageBlock="+backBlock
 
 	}
 }

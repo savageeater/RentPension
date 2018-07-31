@@ -12,6 +12,8 @@
 <body>
 	<%
 		String root = (String) session.getAttribute("root");
+		String id = (String) session.getAttribute("id");
+		
 	%>
 	<center>
 		<h2>게시글작성하기</h2>
@@ -19,12 +21,12 @@
 			<form action="BoardWriteProc" method="post">
 				<tr height="40">
 					<td align="center" width="150">작성자</td>
-					<td width="450"><input type="text" name="writer" size="60"></td>
+					<td width="450"><%=id %></td>
 				</tr>
 				<tr height="40">
 					<td align="center" width="150">제목</td>
 					<td width="450"><input type="text" name="subject" size="60"></td>
-				</tr>
+				</tr>				
 				<tr height="40">
 					<td align="center" width="150">이메일</td>
 					<td width="450"><input type="email" name="email" size="60"></td>

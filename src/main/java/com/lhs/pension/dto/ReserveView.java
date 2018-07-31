@@ -78,7 +78,7 @@ public class ReserveView {
 		
 		String feeString = "";
 		int fee =0;
-		int a, b;
+		int a;
 		feeString += "펜션 예약금:" + (a = getPrice()*dday);
 		fee =(a+(qty-minp)*10000);
 		feeString += " [ 총계: " + (fee)+" ]";
@@ -96,7 +96,7 @@ public class ReserveView {
 			trBuffer.append("</td>");
 			
 			trBuffer.append("<td height='50' width='10%'>");
-			trBuffer.append("<img width='150' height='70' alt='' src='resource/img/" + getImg() + "' >");
+			trBuffer.append("<img width='150' height='70' alt='' src=resource/img/" + getImg() +">");
 			trBuffer.append("</td>");
 			//
 			trBuffer.append("<td height='50' width='3%'>");

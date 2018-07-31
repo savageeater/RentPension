@@ -25,9 +25,6 @@ public class RentPensionParsing {
 			pension.setBreakfast(Integer.parseInt(tokens[11]));
 			pension.setWifi(Integer.parseInt(tokens[12]));
 			errormsg="에러메세지-";
-			
-
-			
 		} catch (Exception e) {
 			System.err.println(errormsg);
 			e.printStackTrace();

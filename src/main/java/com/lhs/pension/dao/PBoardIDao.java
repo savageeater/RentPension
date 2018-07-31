@@ -28,5 +28,6 @@ public interface PBoardIDao {
 	public int getAllCount() throws SQLException;
 	public List<PBoard> selectPart(int key1, int key2) throws SQLException;
 	public List<PBoard> selectPart2(int key1, int key2) throws SQLException;
+
 	
 }

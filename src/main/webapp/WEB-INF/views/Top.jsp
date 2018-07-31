@@ -53,7 +53,7 @@
 					
 			<td align="center" width="20%" bgcolor="#00004a"><a
 				href="BoardList" style="text-decoration: none"><font
-					color="white" size="4">게시판</font></a></td>	
+					color="white" size="4">후기 게시판</font></a></td>	
 									
 			<td align="center" width="20%" bgcolor="#00004a"><a
 				href="MemberInfo" style="text-decoration: none"><font

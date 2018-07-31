@@ -20,6 +20,7 @@
 		String subject = "";
 		String content = "";
 		dto = (PBoard)request.getAttribute("dto");
+		String id = (String) session.getAttribute("id");
 //		try {
 			//bean = dao.select(num);
 			//subject = bean.getSubject();
@@ -35,7 +36,7 @@
 			<table width="600">
 				<tr height="40">
 					<td width="120" align="center" bgcolor="#a6c6f5">작성자</td>
-					<td width="180" align="center"><%=dto.getWriter()%></td>
+					<td width="180" align="center"><%=id%></td>
 					<td width="120" align="center" bgcolor="#a6c6f5">작성일</td>
 					<td width="180" align="center"><%=dto.getReg_date()%></td>
 				</tr>

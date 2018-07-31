@@ -10,7 +10,7 @@
 	
 	<select id="selectAll" resultType="com.lhs.pension.dto.PBoard">
 		SELECT num, writer, email, subject, password, reg_date, ref, re_step, re_level, readcount, content, score
-		FROM P_BOARD ORDER BY REF DESC, RE_LEVEL ASC, RE_STEP ASC
+		FROM P_BOARD ORDER BY REF DESC, RE_LEVEL ASC, RE_STEP ASC, NUM DESC
 	</select>
 	
 	<update id="upreadcnt"> <!-- 조회수증가 -->
@@ -27,7 +27,8 @@
 	</update>
 	
 	<insert id="insert_reply"> <!-- 답변글 -->
-		INSERT INTO P_BOARD VALUES(P_BOARD_SEQ.NEXTVAL, #{param1}, #{param2}, #{param3}, #{param4}, SYSDATE, #{param5}, #{param6}, #{param7}, 0, #{param8})
+		INSERT INTO P_BOARD (num, writer, email, subject, password, reg_date, ref, re_step, re_level, readcount, content, score)
+		VALUES(P_BOARD_SEQ.NEXTVAL, #{param1}, #{param2}, #{param3}, #{param4}, SYSDATE, #{param5}, #{param6}, #{param7}, 0, #{param8}, 0)
 	</insert>
 	
 	<update id="update">
@@ -42,4 +43,6 @@
 	<select id="getAllCount" resultType="java.lang.Integer">
 		SELECT COUNT(*) FROM P_BOARD
 	</select>
+	
+
 </mapper>

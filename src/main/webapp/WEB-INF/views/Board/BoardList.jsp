@@ -17,7 +17,7 @@
 <body>
 
 	<%
-		request.setCharacterEncoding("UTF-8");
+	request.setCharacterEncoding("UTF-8");
 		String root = (String) session.getAttribute("root");
 		// 화면에 보여질 게시글의 개수를 지정(임의로 설정)
 		int perPage = 10; // (1) 화면에 보여질 글 갯수
@@ -61,13 +61,14 @@
 		// 수정,댓글, 삭제 후 현재위치로 돌아오게 하기 위해 현 위치값을 세션에 저장
 		session.setAttribute("currentPage", currentPage);
 		session.setAttribute("currentBlock", currentBlock);
+		
 	%>
 	<center>
 
 		<h2>
 			전체글보기(<%=currentPage + "/" + pm.pageCount%>)
 		</h2>
-		<table style="width:900px;" class="table table-hover">
+		<table style="width:1000px;" class="table table-hover">
 			<tr height="40" align="center" style="font-size: 80%;">
 				<td colspan="5" align="left">
 					<button onclick="location.href='BoardWriteForm'" class="btn btn-default">글쓰기</button>
@@ -79,6 +80,7 @@
 				<td width="100" style="color: blue;">작성자</td>
 				<td width="150" style="color: blue;">날짜</td>
 				<td width="50" style="color: blue;">조회수</td>
+				<td width="50" style="color: blue;">별점</td>
 			</tr>
 			<%
 				//int cnt = 0;
@@ -96,7 +98,10 @@
 						//cnt++;
 				%>
 
-				<td align="center"><%=number%></td>
+				<td align="center"><%=x.getNum()%></td>
+				
+				
+				
 				<td><a href="BoardInfo?num=<%=x.getNum()%>"
 					style="text-decoration: none"> <%
  	if (x.getRe_step() > 1) {
@@ -104,10 +109,13 @@
  %>&nbsp; <%
  	}
  		}
- %> <%=x.getSubject()%></a></td>
+ %> 			<%=x.getSubject()%></a></td>
 				<td align="center"><%=x.getWriter()%></td>
 				<td align="center"><%=x.getReg_date()%></td>
 				<td align="center"><%=x.getReadcount()%></td>
+				<td align="center"> 
+				<%if(x.getScore()!=null)out.print(x.getScore());%>
+				</td>
 				<%
 					number--;// 주의 - 한 번호씩 내려 쓴다.*********************************
 					}
