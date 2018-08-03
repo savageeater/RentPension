@@ -53,6 +53,11 @@
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
+   <groupId>org.webjars.bower</groupId>
+   <artifactId>bootstrap</artifactId>
+   <version>3.3.4</version>
+</dependency>
+		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
 			<version>${org.slf4j-version}</version>
@@ -146,6 +151,39 @@
 	</dependencies>
     <build>
         <plugins>
+<plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-jar-plugin</artifactId>
+    
+    <configuration>
+        <archive>
+            <manifest>
+                <addClasspath>true</addClasspath>
+                <classpathPrefix>lib/</classpathPrefix>
+                <mainClass>com.lhs.pension</mainClass>
+            </manifest>
+        </archive>
+    </configuration>
+</plugin>
+<plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-dependency-plugin</artifactId>
+    <executions>
+        <execution>
+            <id>copy</id>
+            <phase>install</phase>
+            <goals>
+                <goal>copy-dependencies</goal>
+            </goals>
+            <configuration>
+                <outputDirectory>
+                    ${project.build.directory}/lib
+                </outputDirectory>
+            </configuration>
+        </execution>
+    </executions>
+</plugin>
+        
             <plugin>
                 <artifactId>maven-eclipse-plugin</artifactId>
                 <version>2.9</version>
@@ -160,6 +198,8 @@
                     <downloadJavadocs>true</downloadJavadocs>
                 </configuration>
             </plugin>
+            
+            
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -172,6 +212,8 @@
                     <showDeprecation>true</showDeprecation>
                 </configuration>
             </plugin>
+            
+            
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
@@ -180,6 +222,9 @@
                     <mainClass>org.test.int1.Main</mainClass>
                 </configuration>
             </plugin>
+            
+            
+            
         </plugins>
     </build>
 </project>

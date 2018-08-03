@@ -38,7 +38,7 @@ public class BoardController {
 
 	
 	@RequestMapping("/BoardList")
-	public String list(Model model, HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
+	public String Boardlist(Model model, HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
 		System.out.println("BoardList()");
 		PBoardIDao dao = sqlSession.getMapper(PBoardIDao.class);
 		int num = dao.getAllCount();
@@ -61,20 +61,19 @@ public class BoardController {
 	}
 	
 	@RequestMapping("/BoardWriteForm")
-	public String writeForm(Model model, HttpServletRequest request, HttpServletResponse response) throws IOException { // 게시글 작성 폼으로 이동
+	public String boardwriteForm(Model model, HttpServletRequest request, HttpServletResponse response) throws IOException { // 게시글 작성 폼으로 이동
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		return "Main.jsp?center=Board/BoardWriteForm";
 	}
 	
 	@RequestMapping("/BoardWriteProc") // 게시물 작성
-	public String writeProc(Model model, HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
+	public String boardwriteProc(Model model, HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
 		
 		
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter(); 
 
-		model.addAttribute("request", request);
 		HttpSession session = request.getSession();
 		String writer = (String) session.getAttribute("id");
 		
@@ -120,15 +119,23 @@ public class BoardController {
 		String xpwd = request.getParameter("xpwd");
 		String num = request.getParameter("num");
 		PBoard dto = dao.select(num);
-		if(dto.getPassword().equals(xpwd)) {
+		HttpSession session = request.getSession();
+		PBoard dto2 = new PBoard();
+		String id = dto.getWriter();
+		String getid = (String)session.getAttribute("id");
+		
+		if(id.equals(getid)&&dto.getPassword().equals(xpwd)) {
 			dao.delete(Integer.parseInt(num));
 			System.out.println("삭제완료");
 			return "redirect:BoardList";
 		}else {
-			out.println("<script>alert('암호가 틀립니다.'); location.href='BoardDeleteForm?num="+num+"';</script>");
+			out.println("<script>alert('작성자가 다르거나 비밀번호가 틀립니다.'); location.href='BoardDeleteForm?num="+num+"';</script>");
 			out.flush();
 			return null;
 		}
+		
+
+		
 	}
 	
 	@RequestMapping("/BoardUpdateForm")

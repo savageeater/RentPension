@@ -19,6 +19,7 @@ public interface RentPensionIDao<T,K> {
 	public List<T> queryForList(K key) throws SQLException;
 
 	public T queryForObject(K key) throws SQLException;
+	
 	public int getAllCount() throws SQLException;
 	public int getMaxNo()  throws SQLException;
 	public List<T> selectPart(int start,int end)  

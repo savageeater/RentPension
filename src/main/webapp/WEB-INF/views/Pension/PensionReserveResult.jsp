@@ -78,7 +78,7 @@ RentPension rentpension = (RentPension)request.getAttribute("dto");
 				<td colspan="3" align="center"><font size="5" color="gray">예약결과</font></td>
 			</tr>
 			<tr>
-				<td rowspan="6"><img alt="" src="resource/img/<%=rentpension.getImg()%>" /></td>
+				<td rowspan="6"><img alt="" src="resources/img/<%=rentpension.getImg()%>" /></td>
 				<td width="30%">펜션 이름</td>
 				<td width="40%"><%=rentpension.getName()%></td>
 			</tr>

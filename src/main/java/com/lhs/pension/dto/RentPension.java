@@ -18,7 +18,7 @@ public class RentPension {
 
 	@Override
 	public String toString() {
-		return " 예약번호 : " + no + " 펜션 이름 : " + name + " 총 구매 가격 : " + price 
+		return " 예약번호 : " + no + " 펜션 이름 : " + name + " 하루 숙박 가격 : " + price
 				+"지역 : " + region + " 화장실 갯수 : " + toilet + "방 갯수 : " + room + " 기타 정보 : " + info + " ] ";
 	}
 

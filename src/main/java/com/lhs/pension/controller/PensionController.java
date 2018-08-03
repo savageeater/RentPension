@@ -1,6 +1,7 @@
 package com.lhs.pension.controller;
 
 import java.io.PrintWriter;
+import java.sql.SQLException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -24,7 +25,7 @@ public class PensionController {
 	
 	@RequestMapping("/BatchForm")
 	public String batchForm(Model model, HttpServletRequest request) {
-		return "Main.jsp?center=BatchForm";
+		return "Main.jsp?center=Pension/BatchForm";
 	}
 	
 	@RequestMapping("/BatchProc")
@@ -86,7 +87,7 @@ public class PensionController {
 	}
 	
 	@RequestMapping("/UpdateCancel")
-	public String updateCancle(Model model, HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public String updateCancel(Model model, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		HttpSession session = request.getSession();
 		int backPage = Integer.parseInt(session.getAttribute("currentPage")+"");
 		int backBlock = Integer.parseInt(session.getAttribute("currentBlock")+"");
@@ -113,5 +114,23 @@ public class PensionController {
 		dao.update(dto);
 		
 		return "redirect:Pension/UpdateList?pageNum="+backPage+"&pageBlock="+backBlock;
+	}
+
+	
+	@RequestMapping("/PensionCategoryList")
+	public String pensionCategoryList(Model model, HttpServletRequest request, HttpServletResponse response) throws SQLException {
+		RentPensionIDao dao = sqlSession.getMapper(RentPensionIDao.class);
+		int category = Integer.parseInt(request.getParameter("category"));
+		
+		model.addAttribute("category", dao.selectKey(category));
+
+		return "Main.jsp?center=Pension/PensionCategoryList";
+	}
+	
+	@RequestMapping("/PensionAllList")
+	public String pensionAllList(Model model, HttpServletRequest request, HttpServletResponse response) throws SQLException {
+		RentPensionIDao dao = sqlSession.getMapper(RentPensionIDao.class);
+		model.addAttribute("list", dao.selectAll());
+		return "Main.jsp?center=Pension/PensionAllList";
 	}
 }

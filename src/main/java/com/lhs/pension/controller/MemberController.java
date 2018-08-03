@@ -40,6 +40,7 @@ public class MemberController {
 		dto.setId(request.getParameter("id"));
 		dto.setPass(request.getParameter("pass"));
 		dto.setEmail(request.getParameter("email"));
+		dto.setAge(Integer.parseInt(request.getParameter("age")));
 		dto.setTel(request.getParameter("tel"));
 		dto.setRegion(request.getParameter("region"));
 
@@ -49,10 +50,7 @@ public class MemberController {
 		return "redirect:Main";
 	}
 
-	@RequestMapping("/Login")
-	public String login(Model model, HttpServletRequest request) throws SQLException {
-		return "Main.jsp?center=Login";
-	}
+
 
 	@RequestMapping("/LoginProc")
 	public String loginProc(Model model, HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
@@ -137,12 +135,13 @@ public class MemberController {
 		
 		
 		if(dto.getPass().equals(xpwd)) {
+			session.invalidate();
 			dao.delete(id);
-			return "redirect:Logout";
+			return "redirect:Main";
 		}else {
-			out.println("<script>alert('비밀번호가 맞지 않습니다.'); location.href='Member/MemberDeleteForm?id="+id+"';</script>");
+			out.println("<script>alert('비밀번호가 맞지 않습니다.'); location.href='MemberDeleteForm?id="+id+"';</script>");
 			out.flush();
-			return null;
+			return "Main";
 		}
 	}
 	
@@ -175,7 +174,7 @@ public class MemberController {
 			dao.update(dto);
 			return "redirect:Member/MemberInfo?id="+id;
 		}else {
-			out.println("<script>alert('비밀번호가 맞지 않습니다.'); location.href='Member/MemberUpdateForm?id="+id+"';</script>");
+			out.println("<script>alert('비밀번호가 맞지 않습니다.'); location.href='MemberUpdateForm?id="+id+"';</script>");
 			out.flush();
 			return null;
 		}

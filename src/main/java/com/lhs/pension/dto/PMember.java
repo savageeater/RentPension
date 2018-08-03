@@ -5,6 +5,7 @@ public class PMember {
 	private String pass;
 	private String email;
 	private String tel;
+	
 	public String getEmail() {
 		return email;
 	}

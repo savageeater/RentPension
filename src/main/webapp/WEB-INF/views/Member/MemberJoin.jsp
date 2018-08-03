@@ -33,6 +33,11 @@ String joinroot=(String)session.getAttribute("joinroot");
 						name='email' size='40'></td>
 				</tr>
 				<tr height='30'>
+					<td width='150' align='center' bgcolor="#cccccc">나이</td>
+					<td width='550' align='left' bgcolor="#a6c6f5"><input type='text' name='age'
+						size='40'></td>
+				</tr>
+				<tr height='30'>
 					<td width='150' align='center' bgcolor="#cccccc">전화번호</td>
 					<td width='550' align='left' bgcolor="#a6c6f5"><input type='tel' name='tel'
 						size='40'></td>

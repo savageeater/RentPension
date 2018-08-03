@@ -49,19 +49,17 @@ public class RentController {
 			String id = (String)session.getAttribute("id");
 			List<ReserveView> list = dao.selectAllView(id);
 			model.addAttribute("list", list);
-			return "Main.jsp?center=ReserveView";
+			return "Main.jsp?center=Pension/ReserveView";
 		}
 	}
-	@RequestMapping("/Delete")
-	public String delete(Model model, HttpServletRequest request, HttpServletResponse response) {
-		return "Main.jsp?center=Delete";
-	}
+
+	
 	@RequestMapping("/DeleteConfirm")
 	public String deleteConfirm(Model model, HttpServletRequest request, HttpServletResponse response) throws SQLException {
 		int regno = (int) (session.getAttribute("deleteNum"));
 		RentReserveIDao dao = sqlSession.getMapper(RentReserveIDao.class);
 		dao.delete(regno);
-		return "redirect:ReserveView";
+		return "redirect:Pension/ReserveView";
 	}
 	
 	@RequestMapping("/Adjust")
@@ -69,7 +67,7 @@ public class RentController {
 		int regno = Integer.parseInt(request.getParameter("regno"));
 		RentReserveIDao dao = sqlSession.getMapper(RentReserveIDao.class);
 		model.addAttribute("dto", dao.selectVO(regno));
-		return "Main.jsp?center=Adjust";
+		return "Main.jsp?center=Pension/Adjust";
 	}
 	
 	@RequestMapping("/AdjustProc")
@@ -83,7 +81,7 @@ public class RentController {
 		dto.setRegno(Integer.parseInt(request.getParameter("regno")));
 		dto.setMemid(request.getParameter("memid"));
 		model.addAttribute("dto", dao.update(dto));
-		return "redirect:ReserveView";
+		return "redirect:Pension/ReserveView";
 	}
 	
 	@RequestMapping("/PensionReserveMain")
@@ -175,22 +173,7 @@ public class RentController {
 		
 		return "Main.jsp?center=Pension/PensionReserveResult";
 	}
-	@RequestMapping("/PensionCategoryList")
-	public String pensionCategoryList(Model model, HttpServletRequest request, HttpServletResponse response) throws SQLException {
-		RentPensionIDao dao = sqlSession.getMapper(RentPensionIDao.class);
-		int category = Integer.parseInt(request.getParameter("category"));
-		
-		model.addAttribute("category", dao.selectKey(category));
 
-		return "Main.jsp?center=Pension/PensionCategoryList";
-	}
-	
-	@RequestMapping("/PensionAllList")
-	public String pensionAllList(Model model, HttpServletRequest request, HttpServletResponse response) throws SQLException {
-		RentPensionIDao dao = sqlSession.getMapper(RentPensionIDao.class);
-		model.addAttribute("list", dao.selectAll());
-		return "Main.jsp?center=Pension/PensionAllList";
-	}
 	
 	
 }

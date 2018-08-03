@@ -90,13 +90,16 @@ public class ReserveView {
 		StringBuffer trBuffer = new StringBuffer();
 		trBuffer.append("<tr align='center' bgcolor='" + color + "'>");
 			int a, b;
-			// 예약번호 // 차량이미지// 차종 // 예약일 // 대여일수  // 대여수량 // 보험 // wifi// navi // bbst // 대여금액내역// 수정 // 삭제
+			
 			trBuffer.append("<td height='50' width='3%'>");
 			trBuffer.append("" + getRegno() + "");
 			trBuffer.append("</td>");
 			
 			trBuffer.append("<td height='50' width='10%'>");
-			trBuffer.append("<img width='150' height='70' alt='' src=resource/img/" + getImg() +">");
+			trBuffer.append("<img width='150' height='70'");
+			trBuffer.append("src='resources/img/");
+			trBuffer.append(""+getImg()+"");
+			trBuffer.append("'>");
 			trBuffer.append("</td>");
 			//
 			trBuffer.append("<td height='50' width='3%'>");
