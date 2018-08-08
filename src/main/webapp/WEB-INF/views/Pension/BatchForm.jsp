@@ -4,8 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/css/bootstrap.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css">
 <title>BatchForm.jsp</title>
 <style type="text/css">
 td
@@ -13,14 +12,24 @@ td
 padding-top:10px;
 padding-bottom:10px;
 }
-
 </style>
+
+
+
+
 
 </head>
 <body>
+
+
+
+
+<% String adpw = (String) request.getAttribute("adpw");
+%>
+
 <script>
-	var pass = prompt('관리자 비밀번호를 입력하세요.');
-	if(pass!='1234'){
+	var pass = prompt('관리자 비밀번호를 한번 더 입력하세요.');
+	if(pass!=<%=adpw%>){
 		history.go(-1);
 	}
 </script>

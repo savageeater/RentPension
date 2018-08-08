@@ -58,19 +58,18 @@
 			<td align="center" width="20%" bgcolor="#00004a"><a
 				href="MemberInfo" style="text-decoration: none"><font
 					color="white" size="4">회원정보</font></a></td>
-			
+			<!-- 
 			<td align="center" width="20%" bgcolor="#00004a"><a
 				href="BatchForm" style="text-decoration: none"><font
 					color="white" size="4">펜션 등록</font></a></td>
-					
+				 -->	
 					
 			<%
 				if (id.equals("admin")) {
 			%>
-<!-- 			<td align="center" width="20%" bgcolor="#00004a"><a
-				href="CarProcess" style="text-decoration: none"><font
-					color="white" size="4" onMouseover="this.style.color='black';"
-					onMouseout="this.style.color='white';" style="font:bord;">차량 등록</font></a></td> -->
+ 			<td align="center" width="20%" bgcolor="#00004a"><a
+				href="BatchForm" style="text-decoration: none"><font
+					color="white">펜션 등록</font></a></td>
 			<%
 				}
 			%>

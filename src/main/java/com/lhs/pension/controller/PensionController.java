@@ -2,6 +2,7 @@ package com.lhs.pension.controller;
 
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,7 +15,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.lhs.pension.common.RentPensionParsing;
+import com.lhs.pension.dao.PMemberIDao;
 import com.lhs.pension.dao.RentPensionIDao;
+import com.lhs.pension.dto.PMember;
 import com.lhs.pension.dto.RentPension;
 
 @Controller
@@ -24,7 +27,12 @@ public class PensionController {
 	private SqlSession sqlSession;
 	
 	@RequestMapping("/BatchForm")
-	public String batchForm(Model model, HttpServletRequest request) {
+	public String batchForm(Model model, HttpServletRequest request) throws SQLException {
+		HttpSession session = request.getSession();
+		String id = (String)session.getAttribute("id");
+		PMemberIDao dao = sqlSession.getMapper(PMemberIDao.class);
+		String adpw = (String)dao.getPassWord(id);
+		model.addAttribute("adpw", adpw);
 		return "Main.jsp?center=Pension/BatchForm";
 	}
 	
@@ -35,7 +43,6 @@ public class PensionController {
 		PrintWriter out = response.getWriter(); 
 		RentPensionIDao dao = sqlSession.getMapper(RentPensionIDao.class);
 		RentPension dto = new RentPension();
-		
 		dto.setName(request.getParameter("name"));
 		dto.setPrice(Integer.parseInt(request.getParameter("price")));
 		dto.setImg(request.getParameter("img"));

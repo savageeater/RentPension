@@ -8,6 +8,12 @@
 		INSERT INTO P_MEMBER(id, pass, email, tel, age, region)
 		VALUES (#{id},#{pass},#{email},#{tel},#{age},#{region})
 	</insert>
+	
+	<select id="getPassWord" resultType="String">
+		SELECT pass
+		FROM P_MEMBER
+		WHERE ID=#{id}
+	</select>
 
 	<delete id="delete">
 		DELETE FROM P_MEMBER WHERE ID = #{id}
